@@ -11,7 +11,7 @@ public class AccountRepository {
   @Autowired
   AccountDataAccess accountDataAccess;
 
-  public Account findAtmById(Long accountNumber) {
+  public Account findAccountByAccountNumber(Long accountNumber) {
     return accountDataAccess.findByAccountNumber(accountNumber)
         .orElseThrow(
             () -> new NoSuchElementException("There is no account with the given account number")

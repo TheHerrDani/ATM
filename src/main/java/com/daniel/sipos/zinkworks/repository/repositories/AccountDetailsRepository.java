@@ -10,7 +10,7 @@ public class AccountDetailsRepository {
   @Autowired
   AccountDetailsDataAccess accountDetailsDataAccess;
 
-  public AccountDetails update(AccountDetails accountDetails) {
+  public AccountDetails saveOrUpdate(AccountDetails accountDetails) {
     return accountDetailsDataAccess.saveAndFlush(accountDetails);
   }
 }

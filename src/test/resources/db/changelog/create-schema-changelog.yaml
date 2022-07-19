@@ -1,35 +1,5 @@
 databaseChangeLog:
   - changeSet:
-      id: drop-if-exist-account
-      author: Daniel Sipos
-      preConditions:
-          - tableExists:
-              tableName: account
-      changes:
-        - dropTable:
-            cascadeConstraints: true
-            tableName: account
-  - changeSet:
-      id: drop-if-exist-account-deatils
-      author: Daniel Sipos
-      preConditions:
-        - tableExists:
-            tableName: account_details
-      changes:
-        - dropTable:
-            cascadeConstraints: true
-            tableName: account_details
-  - changeSet:
-      id: drop-if-exist-atm
-      author: Daniel Sipos
-      preConditions:
-        - tableExists:
-            tableName: atm
-      changes:
-        - dropTable:
-            cascadeConstraints: true
-            tableName: atm
-  - changeSet:
       id: create-1
       author: Daniel Sipos
       changes:

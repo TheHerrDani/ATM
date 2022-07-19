@@ -35,7 +35,7 @@ public class Account {
   private Long accountNumber;
 
   @Column(name = "pin", nullable = false)
-  private Integer PIN;
+  private Integer pin;
 
   @Override
   public boolean equals(Object o) {
