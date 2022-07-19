@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-1
+      author: Daniel Sipos
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: actual_balance
+                  value: 800
+              - column:
+                  name: overdraft
+                  value: 200
+            tableName: account_details
+        - insert:
+            columns:
+              - column:
+                  name: actual_balance
+                  value: 1230
+              - column:
+                  name: overdraft
+                  value: 150
+            tableName: account_details
+  - changeSet:
+      id: init-2
+      author: Daniel Sipos
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: account_details
+                  value: 1
+              - column:
+                  name: account_number
+                  value: 123456789
+              - column:
+                  name: pin
+                  value: 1234
+            tableName: account
+        - insert:
+            columns:
+              - column:
+                  name: account_details
+                  value: 2
+              - column:
+                  name: account_number
+                  value: 987654321
+              - column:
+                  name: pin
+                  value: 4321
+            tableName: account
+  - changeSet:
+      id: init-3
+      author: Daniel Sipos
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: euro_fifty_count
+                  value: 10
+              - column:
+                  name: euro_twenty_count
+                  value: 30
+              - column:
+                  name: euro_ten_count
+                  value: 30
+              - column:
+                  name: euro_five_count
+                  value: 20
+            tableName: atm

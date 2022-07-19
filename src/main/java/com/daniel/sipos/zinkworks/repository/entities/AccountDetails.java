@@ -1,6 +1,6 @@
-package com.daniel.sipos.zinkworks.entities;
+package com.daniel.sipos.zinkworks.repository.entities;
 
-import java.util.Objects;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,33 +12,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
 @Getter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Builder
-public class Account {
+public class AccountDetails {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   private Long id;
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Account account)) {
-      return false;
-    }
-    return Objects.equals(getId(), account.getId());
-  }
+  @Column(name = "actual_balance", nullable = false)
+  private BigDecimal actualBalance;
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(getId());
-  }
+  @Column(name = "overdraft", nullable = false)
+  private BigDecimal overdraft;
 }
-
