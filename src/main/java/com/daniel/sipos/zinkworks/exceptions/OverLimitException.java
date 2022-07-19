@@ -1,9 +1,7 @@
 package com.daniel.sipos.zinkworks.exceptions;
 
 public class OverLimitException extends RuntimeException {
-  public OverLimitException() {
-    super();
-  }
+
 
 
   public OverLimitException(String message) {
@@ -11,7 +9,5 @@ public class OverLimitException extends RuntimeException {
   }
 
 
-  public OverLimitException(String message, Throwable cause) {
-    super(message, cause);
-  }
+
 }

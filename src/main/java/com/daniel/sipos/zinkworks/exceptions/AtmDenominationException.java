@@ -1,9 +1,6 @@
 package com.daniel.sipos.zinkworks.exceptions;
 
 public class AtmDenominationException extends RuntimeException {
-  public AtmDenominationException() {
-    super();
-  }
 
 
   public AtmDenominationException(String message) {
@@ -11,7 +8,4 @@ public class AtmDenominationException extends RuntimeException {
   }
 
 
-  public AtmDenominationException(String message, Throwable cause) {
-    super(message, cause);
-  }
 }

@@ -21,6 +21,14 @@ public class AtmMapperTest {
   private static final BigDecimal EXPECTED_SUM = BigDecimal.valueOf(1500L);
   private static final BigDecimal EXPECTED_SUM_2 = BigDecimal.valueOf(850L);
   public static final long TEN = 10L;
+  public static final AtmDomain ATM_DOMAIN = AtmDomain.builder()
+      .id(TEN)
+      .euroFiftyCount(TEN)
+      .euroTwentyCount(TEN)
+      .euroTenCount(TEN)
+      .euroFiveCount(TEN)
+      .allMoney(EXPECTED_SUM)
+      .build();
 
   @Autowired
   private AtmMapper atmMapper;
@@ -62,17 +70,9 @@ public class AtmMapperTest {
 
   @Test
   public void toEntity() {
-    AtmDomain atmDomain = AtmDomain.builder()
-        .id(TEN)
-        .euroFiftyCount(TEN)
-        .euroTwentyCount(TEN)
-        .euroTenCount(TEN)
-        .euroFiveCount(TEN)
-        .allMoney(EXPECTED_SUM)
-        .build();
 
 
-    Atm atm = atmMapper.toEntity(atmDomain);
+    Atm atm = atmMapper.toEntity(ATM_DOMAIN);
     assertThat(atm.getId()).isEqualTo(TEN);
     assertThat(atm.getEuroFiftyCount()).isEqualTo(TEN);
     assertThat(atm.getEuroTwentyCount()).isEqualTo(TEN);

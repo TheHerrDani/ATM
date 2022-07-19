@@ -1,17 +1,25 @@
 package com.daniel.sipos.zinkworks.service.domain;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class AtmDispenseChange {
+  private Integer euroFiftyCount;
 
-  private boolean isItPossible;
+  private Integer euroTwentyCount;
 
-  private Long euroFiftyCount;
+  private Integer euroTenCount;
 
-  private Long euroTwentyCount;
+  private Integer euroFiveCount;
 
-  private Long euroTenCount;
-
-  private Long euroFiveCount;
+  public static AtmDispenseChange buildEmpty() {
+    return AtmDispenseChange.builder()
+        .euroFiftyCount(0)
+        .euroTwentyCount(0)
+        .euroTenCount(0)
+        .euroFiveCount(0)
+        .build();
+  }
 }
