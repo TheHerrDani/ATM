@@ -1,11 +1,16 @@
 spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+        ddl-auto: create-drop
   datasource:
     url: jdbc:mysql://mysqlserver/zinkworks
     username: sa
     password:
   liquibase:
     enabled: true
-    change-log: classpath:db/changelog/db.changelog-master-test.xml
 logging:
   level:
     org:
