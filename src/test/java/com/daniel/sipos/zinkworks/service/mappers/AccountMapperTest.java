@@ -22,6 +22,7 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 public class AccountMapperTest {
   private static final Long ACCOUNT_ID = 1L;
+  private static final BigDecimal DISPENSABLE_MONEY = new BigDecimal(600);
   @Autowired
   private AccountMapper accountMapper;
 
@@ -43,6 +44,7 @@ public class AccountMapperTest {
     assertThat(accountDomain.getAccountNumber()).isEqualTo(ACCOUNT_NUMBER);
     assertThat(accountDomain.getPin()).isEqualTo(PIN_NUMBER);
     assertThat(accountDomain.getAccountDetails().getActualBalance()).isEqualTo(ACTUAL_BALANCE);
+    assertThat(accountDomain.getDispensableMoney()).isEqualTo(DISPENSABLE_MONEY);
     assertThat(accountDomain.getAccountDetails().getOverdraft()).isEqualTo(OVERDRAFT);
   }
 

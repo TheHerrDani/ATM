@@ -1,6 +1,7 @@
 package com.daniel.sipos.zinkworks.service.mappers;
 
 import com.daniel.sipos.zinkworks.repository.entities.Account;
+import com.daniel.sipos.zinkworks.service.domain.AccountDetailsDomain;
 import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +13,14 @@ public class AccountMapper {
   AccountDetailsMapper accountDetailsMapper;
 
   public AccountDomain toDomain(Account account) {
+    AccountDetailsDomain accountDetails =
+        accountDetailsMapper.toDomain(account.getAccountDetails());
     return AccountDomain.builder()
         .id(account.getId())
         .pin(account.getPin())
         .accountNumber(account.getAccountNumber())
-        .accountDetails(accountDetailsMapper.toDomain(account.getAccountDetails()))
+        .accountDetails(accountDetails)
+        .dispensableMoney(accountDetails.getActualBalance().add(accountDetails.getOverdraft()))
         .build();
   }
 

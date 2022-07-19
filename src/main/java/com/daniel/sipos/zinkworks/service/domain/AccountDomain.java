@@ -1,5 +1,6 @@
 package com.daniel.sipos.zinkworks.service.domain;
 
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,6 +16,8 @@ public class AccountDomain {
   private Long id;
 
   private AccountDetailsDomain accountDetails;
+
+  private BigDecimal dispensableMoney;
 
   private Long accountNumber;
 
