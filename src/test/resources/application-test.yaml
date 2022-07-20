@@ -18,3 +18,6 @@ logging:
       springframework:
         web: TRACE
         security: TRACE
+jwt:
+  private.key: classpath:static/app.key
+  public.key: classpath:static/app.pub

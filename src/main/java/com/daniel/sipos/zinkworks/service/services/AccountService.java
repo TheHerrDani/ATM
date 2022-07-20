@@ -35,6 +35,7 @@ public class AccountService {
 
   @Transactional
   public AccountDomain dispenseMoney(Long atmId, String accountNumber, long requested) {
+    authenticateUser();
     checkRequestedAmount(requested);
     AccountDomain accountDomain =
         accountMapper.toDomain(accountRepository.findAccountByAccountNumber(accountNumber));
@@ -50,6 +51,9 @@ public class AccountService {
     accountDetailsRepository.saveOrUpdate(accountDetailsMapper.toEntity(newAccountDetails));
     atmService.updateStorage(atmDispenseChange, atmId);
     return accountMapper.toDomain(accountRepository.findAccountByAccountNumber(accountNumber));
+  }
+
+  private void authenticateUser() {
   }
 
   //TODO test
