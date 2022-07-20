@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+        ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/zinkworks
+    username: ZINKWORKS
+    password: ZINKWORKS
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  liquibase:
+    enabled: false
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE
+        security: TRACE
+jwt:
+  private.key: classpath:static/app.key
+  public.key: classpath:static/app.pub

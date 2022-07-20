@@ -1,0 +1,68 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-1
+      author: Daniel Sipos
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: account_details
+                  type: bigint
+              - column:
+                  name: account_number
+                  type: varchar(50)
+              - column:
+                  name: pin
+                  type: varchar(4)
+        - createTable:
+            tableName: account_details
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: actual_balance
+                  type: bigint
+              - column:
+                  name: overdraft
+                  type: bigint
+        - createTable:
+            tableName: atm
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: euro_fifty_count
+                  type: bigint
+              - column:
+                  name: euro_twenty_count
+                  type: bigint
+              - column:
+                  name: euro_ten_count
+                  type: bigint
+              - column:
+                  name: euro_five_count
+                  type: bigint
+        - addForeignKeyConstraint:
+            baseTableName: account
+            baseColumnNames: account_details
+            constraintName: fk_account_account_details
+            referencedTableName: account_details
+            referencedColumnNames: id

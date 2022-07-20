@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.entities;
+package com.daniel.sipos.zinkworks.repository.entities;
 
 import java.util.Objects;
 import javax.persistence.Column;
@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,7 +25,17 @@ public class Account {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
-  private Long id;
+  private long id;
+
+  @OneToOne()
+  @JoinColumn(name = "account_details", referencedColumnName = "id", nullable = false)
+  private AccountDetails accountDetails;
+
+  @Column(name = "account_number", nullable = false)
+  private String accountNumber;
+
+  @Column(name = "pin", nullable = false)
+  private String pin;
 
   @Override
   public boolean equals(Object o) {
