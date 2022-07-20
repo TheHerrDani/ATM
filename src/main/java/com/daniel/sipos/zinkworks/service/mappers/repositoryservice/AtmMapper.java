@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.service.mappers;
+package com.daniel.sipos.zinkworks.service.mappers.repositoryservice;
 
 import com.daniel.sipos.zinkworks.repository.entities.Atm;
 import com.daniel.sipos.zinkworks.service.domain.AtmDomain;

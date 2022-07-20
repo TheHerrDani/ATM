@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.daniel.sipos.zinkworks.repository.entities.AccountDetails;
 import com.daniel.sipos.zinkworks.service.domain.AccountDetailsDomain;
+import com.daniel.sipos.zinkworks.service.mappers.repositoryservice.AccountDetailsMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

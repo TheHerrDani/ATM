@@ -5,25 +5,31 @@ import static com.daniel.sipos.zinkworks.util.Util.FIVE;
 import static com.daniel.sipos.zinkworks.util.Util.TEN;
 import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
 
+import com.daniel.sipos.zinkworks.controller.models.AtmDataModel;
 import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
 import com.daniel.sipos.zinkworks.exceptions.AtmMoneyShortageException;
 import com.daniel.sipos.zinkworks.repository.entities.Atm;
 import com.daniel.sipos.zinkworks.repository.repositories.AtmRepository;
 import com.daniel.sipos.zinkworks.service.domain.AtmDispenseChange;
 import com.daniel.sipos.zinkworks.service.domain.AtmDomain;
-import com.daniel.sipos.zinkworks.service.mappers.AtmMapper;
+import com.daniel.sipos.zinkworks.service.mappers.repositoryservice.AtmMapper;
+import com.daniel.sipos.zinkworks.service.mappers.servicecontroller.AtmDataModelMapper;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class AtmService {
-  @Autowired
-  AtmRepository atmRepository;
 
-  @Autowired
-  AtmMapper atmMapper;
+  private final AtmRepository atmRepository;
+  private final AtmMapper atmMapper;
+  private final AtmDataModelMapper atmDataModelMapper;
+
+  public AtmDataModel getAccountInformation(long atmId) {
+    return atmDataModelMapper.toModel(atmMapper.toDomain(atmRepository.findAtmById(atmId)));
+  }
 
   public AtmDispenseChange createAtmDispenseChange(long atmId, long requested) {
     AtmDomain atmDomain = atmMapper.toDomain(atmRepository.findAtmById(atmId));
@@ -94,4 +100,6 @@ public class AtmService {
         .build();
     atmRepository.saveOrUpdateAtm(atm);
   }
+
+
 }

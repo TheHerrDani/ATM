@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.controller;
+package com.daniel.sipos.zinkworks.controller.controllers;
 
 import java.time.Instant;
 import java.util.stream.Collectors;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/token")
-public class TokenController {
+@RequestMapping(path = "/api/login")
+public class LoginController {
 
   @Autowired
   JwtEncoder encoder;
@@ -35,5 +35,4 @@ public class TokenController {
         .build();
     return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
   }
-
 }

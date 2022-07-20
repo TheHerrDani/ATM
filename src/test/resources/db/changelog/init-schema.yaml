@@ -35,7 +35,7 @@ databaseChangeLog:
                   value: 123456789
               - column:
                   name: pin
-                  value: {bcrypt}$2a$10$SGXaRPtohhlLnd4NjLuVwuRhMnWuyGpsDAd9vYNXNjMPfdrDot/oC
+                  value: 1234
             tableName: account
         - insert:
             columns:
@@ -47,7 +47,7 @@ databaseChangeLog:
                   value: 987654321
               - column:
                   name: pin
-                  value: {bcrypt}$2a$10$7TKqlSBuryS0nP7jeF9Wxuke80Ty0HJyhmSZiv4VqbvyCxeYaxRaa
+                  value: 4321
             tableName: account
   - changeSet:
       id: init-3
