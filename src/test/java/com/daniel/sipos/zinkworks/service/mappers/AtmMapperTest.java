@@ -8,7 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.daniel.sipos.zinkworks.repository.entities.Atm;
 import com.daniel.sipos.zinkworks.service.domain.AtmDomain;
-import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,8 +17,8 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 public class AtmMapperTest {
 
-  private static final BigDecimal EXPECTED_SUM = BigDecimal.valueOf(1500L);
-  private static final BigDecimal EXPECTED_SUM_2 = BigDecimal.valueOf(850L);
+  private static final long EXPECTED_SUM = 1500L;
+  private static final long EXPECTED_SUM_2 = 850L;
   public static final long TEN = 10L;
   public static final AtmDomain ATM_DOMAIN = AtmDomain.builder()
       .id(TEN)
@@ -27,7 +26,6 @@ public class AtmMapperTest {
       .euroTwentyCount(TEN)
       .euroTenCount(TEN)
       .euroFiveCount(TEN)
-      .allMoney(EXPECTED_SUM)
       .build();
 
   @Autowired
@@ -35,7 +33,6 @@ public class AtmMapperTest {
 
   @Test
   public void toDomain() {
-
     Atm atm = Atm.builder()
         .id(TEN)
         .euroFiftyCount(EXPECTED_FIFTY)
@@ -56,22 +53,19 @@ public class AtmMapperTest {
 
   @Test
   public void getAllMoney() {
-
-    Atm atm = Atm.builder()
+    AtmDomain atm = AtmDomain.builder()
         .euroFiftyCount(TEN)
         .euroTwentyCount(TEN)
         .euroTenCount(TEN)
         .euroFiveCount(TEN)
         .build();
 
-    BigDecimal result = atmMapper.getAllMoney(atm);
+    long result = atm.getAllMoney();
     assertThat(result).isEqualTo(EXPECTED_SUM_2);
   }
 
   @Test
   public void toEntity() {
-
-
     Atm atm = atmMapper.toEntity(ATM_DOMAIN);
     assertThat(atm.getId()).isEqualTo(TEN);
     assertThat(atm.getEuroFiftyCount()).isEqualTo(TEN);

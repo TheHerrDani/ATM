@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.daniel.sipos.zinkworks.repository.entities.Account;
 import com.daniel.sipos.zinkworks.repository.entities.AccountDetails;
 import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
-import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +21,7 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 public class AccountMapperTest {
   private static final Long ACCOUNT_ID = 1L;
-  private static final BigDecimal DISPENSABLE_MONEY = new BigDecimal(600);
+  private static final long DISPENSABLE_MONEY = 600L;
   @Autowired
   private AccountMapper accountMapper;
 

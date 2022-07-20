@@ -21,17 +21,17 @@ public class Atm {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
-  private Long id;
+  private long id;
 
   @Column(name = "euro_fifty_count", nullable = false)
-  private Long euroFiftyCount;
+  private long euroFiftyCount;
 
   @Column(name = "euro_twenty_count", nullable = false)
-  private Long euroTwentyCount;
+  private long euroTwentyCount;
 
   @Column(name = "euro_ten_count", nullable = false)
-  private Long euroTenCount;
+  private long euroTenCount;
 
   @Column(name = "euro_five_count", nullable = false)
-  private Long euroFiveCount;
+  private long euroFiveCount;
 }

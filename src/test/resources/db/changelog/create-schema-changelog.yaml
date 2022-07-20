@@ -18,10 +18,10 @@ databaseChangeLog:
                   type: bigint
               - column:
                   name: account_number
-                  type: bigint
+                  type: varchar(50)
               - column:
                   name: pin
-                  type: int
+                  type: varchar(4)
         - createTable:
             tableName: account_details
             columns:
@@ -34,10 +34,10 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: actual_balance
-                  type: decimal
+                  type: bigint
               - column:
                   name: overdraft
-                  type: decimal
+                  type: bigint
         - createTable:
             tableName: atm
             columns:

@@ -1,7 +1,9 @@
 package com.daniel.sipos.zinkworks.service.services;
 
 import static com.daniel.sipos.zinkworks.service.mappers.AtmMapperTest.ATM_DOMAIN;
-import static com.daniel.sipos.zinkworks.service.mappers.AtmMapperTest.TEN;
+import static com.daniel.sipos.zinkworks.util.Util.FIFTY;
+import static com.daniel.sipos.zinkworks.util.Util.TEN;
+import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -10,7 +12,6 @@ import com.daniel.sipos.zinkworks.exceptions.AtmMoneyShortageException;
 import com.daniel.sipos.zinkworks.repository.entities.Atm;
 import com.daniel.sipos.zinkworks.repository.repositories.AtmRepository;
 import com.daniel.sipos.zinkworks.service.domain.AtmDispenseChange;
-import java.math.BigDecimal;
 import java.util.Map;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
@@ -34,17 +35,16 @@ public class AtmServiceTest {
   AtmRepository atmRepository;
 
   @ParameterizedTest
-  @MethodSource("checkAtmStorageProvider")
-  public void checkAtmStorage(Long requested, AtmDispenseChange result) {
-    AtmDispenseChange atmDispenseChange = atmService.checkAtmStorage(1L,
-        BigDecimal.valueOf(requested));
-    assertThat(result).isEqualTo(atmDispenseChange);
+  @MethodSource("createAtmDispenseChangeProvider")
+  public void createAtmDispenseChange(Long requested, AtmDispenseChange result) {
+    AtmDispenseChange atmDispenseChange = atmService.createAtmDispenseChange(1L, requested);
+    assertThat(atmDispenseChange).isEqualTo(result);
   }
 
   @Test
   public void checkAtmStorageThrowAtmMoneyShortageException() {
-    assertThrows(AtmMoneyShortageException.class, () -> atmService.checkAtmStorage(1L,
-        BigDecimal.valueOf(2000L)));
+    assertThrows(AtmMoneyShortageException.class,
+        () -> atmService.createAtmDispenseChange(1L, 2000L));
   }
 
   @Test
@@ -56,17 +56,17 @@ public class AtmServiceTest {
         .euroFiveCount(ZERO)
         .build();
     Atm saved = atmRepository.saveOrUpdateAtm(start);
-    assertThrows(AtmDenominationException.class, () -> atmService.checkAtmStorage(saved.getId(),
-        BigDecimal.valueOf(55L)));
+    assertThrows(AtmDenominationException.class,
+        () -> atmService.createAtmDispenseChange(saved.getId(), 55));
   }
 
   @Test
   public void createAtmDenominationMap() {
-    Map<Integer, Long> testMap = atmService.createAtmDenominationMap(ATM_DOMAIN);
-    assertThat(testMap.get(50)).isEqualTo(TEN);
-    assertThat(testMap.get(20)).isEqualTo(TEN);
-    assertThat(testMap.get(10)).isEqualTo(TEN);
-    assertThat(testMap.get(5)).isEqualTo(TEN);
+    Map<Long, Long> testMap = atmService.createAtmDenominationMap(ATM_DOMAIN);
+    assertThat(testMap.get(FIFTY)).isEqualTo(TEN);
+    assertThat(testMap.get(TWENTY)).isEqualTo(TEN);
+    assertThat(testMap.get(TEN)).isEqualTo(TEN);
+    assertThat(testMap.get(FIVE)).isEqualTo(TEN);
   }
 
   @Test
@@ -88,7 +88,7 @@ public class AtmServiceTest {
     assertThat(end.getEuroFiveCount()).isEqualTo(FIVE);
   }
 
-  private static Stream<Arguments> checkAtmStorageProvider() {
+  private static Stream<Arguments> createAtmDispenseChangeProvider() {
     AtmDispenseChange first =
         createAtmDispenseChange(0, 0, 0, 1);
     AtmDispenseChange second =

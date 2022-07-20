@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.daniel.sipos.zinkworks.repository.entities.AccountDetails;
 import com.daniel.sipos.zinkworks.repository.repositories.AccountDetailsRepository;
-import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,9 +13,9 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 public class AccountDetailsRepositoryTest {
   public static final long ACCOUNT_DETAILS_ID = 3L;
-  public static final BigDecimal ACTUAL_BALANCE = new BigDecimal(400);
-  public static final BigDecimal NEW_BALANCE = new BigDecimal(800);
-  public static final BigDecimal OVERDRAFT = new BigDecimal(200);
+  public static final long ACTUAL_BALANCE = 400L;
+  public static final long NEW_BALANCE = 800L;
+  public static final long OVERDRAFT = 200L;
 
   @Autowired
   AccountDetailsRepository accountDetailsRepository;
@@ -39,8 +38,8 @@ public class AccountDetailsRepositoryTest {
     assertThat(accountDetails.getOverdraft()).isEqualTo(OVERDRAFT);
   }
 
-  public static AccountDetails createAccountDetails(Long accountDetailsId, BigDecimal actualBalance,
-                                                    BigDecimal overdraft) {
+  public static AccountDetails createAccountDetails(Long accountDetailsId, long actualBalance,
+                                                    long overdraft) {
     return AccountDetails.builder()
         .id(accountDetailsId)
         .actualBalance(actualBalance)

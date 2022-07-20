@@ -1,6 +1,5 @@
 package com.daniel.sipos.zinkworks.service.domain;
 
-import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,10 +13,10 @@ import lombok.ToString;
 @Getter
 public class AccountDetailsDomain {
 
-  private Long id;
+  private long id;
 
-  private BigDecimal actualBalance;
+  private long actualBalance;
 
-  private BigDecimal overdraft;
+  private long overdraft;
 
 }

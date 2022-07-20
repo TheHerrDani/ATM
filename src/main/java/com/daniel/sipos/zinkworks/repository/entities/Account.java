@@ -25,17 +25,17 @@ public class Account {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
-  private Long id;
+  private long id;
 
   @OneToOne()
   @JoinColumn(name = "account_details", referencedColumnName = "id", nullable = false)
   private AccountDetails accountDetails;
 
   @Column(name = "account_number", nullable = false)
-  private Long accountNumber;
+  private String accountNumber;
 
   @Column(name = "pin", nullable = false)
-  private Integer pin;
+  private String pin;
 
   @Override
   public boolean equals(Object o) {

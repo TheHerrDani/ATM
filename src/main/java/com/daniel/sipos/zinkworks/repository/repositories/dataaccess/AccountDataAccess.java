@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 @Transactional
 public interface AccountDataAccess extends JpaRepository<Account, Long> {
   @Lock(LockModeType.PESSIMISTIC_WRITE)
-  Optional<Account> findByAccountNumber(Long accountNumber);
+  Optional<Account> findByAccountNumber(String accountNumber);
 }

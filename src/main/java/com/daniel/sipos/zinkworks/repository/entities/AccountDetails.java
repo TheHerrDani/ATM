@@ -1,6 +1,5 @@
 package com.daniel.sipos.zinkworks.repository.entities;
 
-import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,11 +21,11 @@ public class AccountDetails {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
-  private Long id;
+  private long id;
 
   @Column(name = "actual_balance", nullable = false)
-  private BigDecimal actualBalance;
+  private long actualBalance;
 
   @Column(name = "overdraft", nullable = false)
-  private BigDecimal overdraft;
+  private long overdraft;
 }

@@ -9,7 +9,6 @@ import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
 import com.daniel.sipos.zinkworks.exceptions.OverLimitException;
 import com.daniel.sipos.zinkworks.exceptions.RequestedAmountException;
 import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
-import java.math.BigDecimal;
 import javax.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -28,28 +27,26 @@ public class AccountServiceTest {
   @Transactional
   public void dispenseMoney() {
     AccountDomain result = accountService.dispenseMoney(ATM_ID, ACCOUNT_NUMBER,
-        BigDecimal.valueOf(400));
-    assertThat(result.getDispensableMoney()).isEqualTo(BigDecimal.valueOf(600));
+        400L);
+    assertThat(result.getDispensableMoney()).isEqualTo(600);
   }
 
   @Test
   public void dispenseMoneyThrowOverLimitExceptionException() {
     assertThrows(OverLimitException.class,
-        () -> accountService.dispenseMoney(ATM_ID, ACCOUNT_NUMBER,
-            BigDecimal.valueOf(1600)));
+        () -> accountService.dispenseMoney(ATM_ID, ACCOUNT_NUMBER, 1600));
   }
 
   @ParameterizedTest
   @ValueSource(longs = {-1000, -100, -10, -1, 0})
   public void checkRequestedAmountThrowRequestedAmountException(long value) {
     assertThrows(RequestedAmountException.class,
-        () -> accountService.checkRequestedAmount(BigDecimal.valueOf(value)));
+        () -> accountService.checkRequestedAmount(value));
   }
 
   @ParameterizedTest
   @ValueSource(longs = {13, 28, 132})
   public void checkRequestedAmountThrowAtmDenominationException(long value) {
-    assertThrows(AtmDenominationException.class, () -> accountService.checkRequestedAmount(
-        BigDecimal.valueOf(value)));
+    assertThrows(AtmDenominationException.class, () -> accountService.checkRequestedAmount(value));
   }
 }

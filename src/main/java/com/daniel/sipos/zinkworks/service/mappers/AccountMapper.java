@@ -20,7 +20,6 @@ public class AccountMapper {
         .pin(account.getPin())
         .accountNumber(account.getAccountNumber())
         .accountDetails(accountDetails)
-        .dispensableMoney(accountDetails.getActualBalance().add(accountDetails.getOverdraft()))
         .build();
   }
 

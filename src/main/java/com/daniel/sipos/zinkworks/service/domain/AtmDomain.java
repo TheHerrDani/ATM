@@ -1,6 +1,10 @@
 package com.daniel.sipos.zinkworks.service.domain;
 
-import java.math.BigDecimal;
+import static com.daniel.sipos.zinkworks.util.Util.FIFTY;
+import static com.daniel.sipos.zinkworks.util.Util.FIVE;
+import static com.daniel.sipos.zinkworks.util.Util.TEN;
+import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,15 +17,20 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter
 public class AtmDomain {
-  private Long id;
+  private long id;
 
-  private Long euroFiftyCount;
+  private long euroFiftyCount;
 
-  private Long euroTwentyCount;
+  private long euroTwentyCount;
 
-  private Long euroTenCount;
+  private long euroTenCount;
 
-  private Long euroFiveCount;
+  private long euroFiveCount;
 
-  private BigDecimal allMoney;
+  public long getAllMoney() {
+    return (this.getEuroFiftyCount() * FIFTY) +
+        (this.getEuroTwentyCount() * TWENTY) +
+        (this.getEuroTenCount() * TEN) +
+        (this.getEuroFiveCount() * FIVE);
+  }
 }
