@@ -1,0 +1,36 @@
+<div>
+  <div class="info">
+    <div class="block">
+      <div class="title">Account number</div>
+      <div class="data">{{accountNumber}}</div>
+    </div>
+    <div class="block">
+      <div class="title">Balance</div>
+      <div class="data">{{balance}}</div>
+    </div>
+    <div class="block">
+      <div class="title">Overdraft</div>
+      <div class="data">{{overdraft}}</div>
+    </div>
+  </div>
+  <div class="info" v-if="dispensedMoney > 0">
+    <div class="block">
+      <div class="title">Last transaction:</div>
+    </div>
+    <div class="block">
+      <div class="title">Dispensed Money</div>
+      <div class="data">{{dispensedMoney}}</div>
+    </div>
+    <div class="block">
+      <div class="title">Remaining dispensable money</div>
+      <div class="data">{{remainingDispensableAmount}}</div>
+    </div>
+    <div class="block">
+      <div class="title">Denomination of the transaction</div>
+      <div class="data">Fifty: {{euroFiftyCount}}</div>
+      <div class="data">Twenty: {{euroTwentyCount}}</div>
+      <div class="data">Ten: {{euroTenCount}}</div>
+      <div class="data">Five: {{euroFiveCount}}</div>
+    </div>
+  </div>
+</div>

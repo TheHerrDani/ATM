@@ -1,0 +1,27 @@
+version: '3'
+services:
+  api:
+    image: 'herrdani/zinkworks:latest'
+    hostname: api
+    build:
+      dockerfile: Dockerfile
+      context: ./../../
+    ports:
+      - '8080:8080'
+  client:
+    image: 'herrdani/zinkworks:latest'
+    hostname: client
+    build:
+      dockerfile: Dockerfile
+      context: ../../frontend/
+    ports:
+      - '3000:3000'
+  mysqlserver:
+    image: mysql/mysql-server:8.0.29
+    environment:
+      MYSQL_ROOT_PASSWORD: ZINKWORKS
+      MYSQL_DATABASE: zinkworks
+      MYSQL_USER: ZINKWORKS
+      MYSQL_PASSWORD: ZINKWORKS
+    ports:
+      - "3306:3306"

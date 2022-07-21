@@ -1,0 +1,24 @@
+.info {
+   display: flex;
+   justify-content: space-between;
+}
+
+.info .block {
+    margin-bottom: 2.5rem;
+}
+
+.info .block .title {
+    color: #00d6ff;
+    font-size: 0.875rem;
+}
+
+.info .block .data {
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+@media (min-width: 576px) {
+    .info {
+        flex-direction: column;
+    }
+}
