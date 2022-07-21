@@ -14,7 +14,7 @@ public class AccountDataModel {
   private String accountNumber;
 
   @NotNull
-  private long dispensedAmount;
+  private long dispensableMoney;
 
   @NotNull
   private long actualBalance;

@@ -4,6 +4,7 @@ import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
 import com.daniel.sipos.zinkworks.exceptions.AtmMoneyShortageException;
 import com.daniel.sipos.zinkworks.exceptions.OverLimitException;
 import com.daniel.sipos.zinkworks.exceptions.RequestedAmountException;
+import java.util.NoSuchElementException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,11 +13,19 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-  //TODO TEST
+
+  public static final String GENERIC_ERROR = "Something went wrong in the application";
+
   @ExceptionHandler(NullPointerException.class)
   @ResponseStatus(HttpStatus.UNAUTHORIZED)
   public ResponseEntity<String> handleNullPointerException(RuntimeException ex) {
-    return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
+    return new ResponseEntity<>(GENERIC_ERROR, HttpStatus.UNAUTHORIZED);
+  }
+
+  @ExceptionHandler(NoSuchElementException.class)
+  @ResponseStatus(HttpStatus.NOT_FOUND)
+  public ResponseEntity<String> handleNoSuchElementException(RuntimeException ex) {
+    return new ResponseEntity<>(GENERIC_ERROR, HttpStatus.NOT_FOUND);
   }
 
   @ExceptionHandler(AtmDenominationException.class)
@@ -27,7 +36,7 @@ public class GlobalExceptionHandler {
 
   @ExceptionHandler(AtmMoneyShortageException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public ResponseEntity<String> handleNullPointer(RuntimeException ex) {
+  public ResponseEntity<String> handleAtmMoneyShortageException(RuntimeException ex) {
     return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
   }
 
