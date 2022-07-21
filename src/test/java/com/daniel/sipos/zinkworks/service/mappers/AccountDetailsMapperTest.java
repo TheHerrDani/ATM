@@ -1,13 +1,14 @@
 package com.daniel.sipos.zinkworks.service.mappers;
 
-import static com.daniel.sipos.zinkworks.repository.AccountDetailsRepositoryTest.ACCOUNT_DETAILS_ID;
-import static com.daniel.sipos.zinkworks.repository.AccountDetailsRepositoryTest.ACTUAL_BALANCE;
-import static com.daniel.sipos.zinkworks.repository.AccountDetailsRepositoryTest.OVERDRAFT;
+import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACCOUNT_DETAILS_DOMAIN;
+import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACCOUNT_DETAILS_ID;
+import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACTUAL_BALANCE;
+import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.TWO_HUNDRED;
+import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.createAccountDetails;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.daniel.sipos.zinkworks.repository.entities.AccountDetails;
 import com.daniel.sipos.zinkworks.service.domain.AccountDetailsDomain;
-import com.daniel.sipos.zinkworks.service.mappers.repositoryservice.AccountDetailsMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,39 +18,26 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 public class AccountDetailsMapperTest {
 
-  public static final AccountDetailsDomain ACCOUNT_DETAILS_DOMAIN = AccountDetailsDomain.builder()
-      .id(ACCOUNT_DETAILS_ID)
-      .actualBalance(ACTUAL_BALANCE)
-      .overdraft(OVERDRAFT)
-      .build();
   @Autowired
   private AccountDetailsMapper accountDetailsMapper;
 
   @Test
   public void toDomain() {
 
-    AccountDetails accountDetails = AccountDetails.builder()
-        .id(ACCOUNT_DETAILS_ID)
-        .actualBalance(ACTUAL_BALANCE)
-        .overdraft(OVERDRAFT)
-        .build();
-
-    AccountDetailsDomain accountDetailsDomain = accountDetailsMapper.toDomain(accountDetails);
+    AccountDetailsDomain accountDetailsDomain = accountDetailsMapper.toDomain(
+        createAccountDetails(ACCOUNT_DETAILS_ID, ACTUAL_BALANCE, TWO_HUNDRED));
 
     assertThat(accountDetailsDomain.getId()).isEqualTo(ACCOUNT_DETAILS_ID);
     assertThat(accountDetailsDomain.getActualBalance()).isEqualTo(ACTUAL_BALANCE);
-    assertThat(accountDetailsDomain.getOverdraft()).isEqualTo(OVERDRAFT);
+    assertThat(accountDetailsDomain.getOverdraft()).isEqualTo(TWO_HUNDRED);
   }
 
   @Test
   public void toEntity() {
-
-    AccountDetailsDomain accountDetailsDomain = ACCOUNT_DETAILS_DOMAIN;
-
-    AccountDetails accountDetails = accountDetailsMapper.toEntity(accountDetailsDomain);
+    AccountDetails accountDetails = accountDetailsMapper.toEntity(ACCOUNT_DETAILS_DOMAIN);
 
     assertThat(accountDetails.getId()).isEqualTo(ACCOUNT_DETAILS_ID);
     assertThat(accountDetails.getActualBalance()).isEqualTo(ACTUAL_BALANCE);
-    assertThat(accountDetails.getOverdraft()).isEqualTo(OVERDRAFT);
+    assertThat(accountDetails.getOverdraft()).isEqualTo(TWO_HUNDRED);
   }
 }

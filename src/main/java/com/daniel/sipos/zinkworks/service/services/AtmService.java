@@ -5,6 +5,7 @@ import static com.daniel.sipos.zinkworks.util.Util.FIVE;
 import static com.daniel.sipos.zinkworks.util.Util.TEN;
 import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
 
+import com.daniel.sipos.zinkworks.controller.mappers.AtmDataModelMapper;
 import com.daniel.sipos.zinkworks.controller.models.AtmDataModel;
 import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
 import com.daniel.sipos.zinkworks.exceptions.AtmMoneyShortageException;
@@ -12,8 +13,7 @@ import com.daniel.sipos.zinkworks.repository.entities.Atm;
 import com.daniel.sipos.zinkworks.repository.repositories.AtmRepository;
 import com.daniel.sipos.zinkworks.service.domain.AtmDispenseChange;
 import com.daniel.sipos.zinkworks.service.domain.AtmDomain;
-import com.daniel.sipos.zinkworks.service.mappers.repositoryservice.AtmMapper;
-import com.daniel.sipos.zinkworks.service.mappers.servicecontroller.AtmDataModelMapper;
+import com.daniel.sipos.zinkworks.service.mappers.AtmMapper;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.AllArgsConstructor;
@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class AtmService {
 
+  public static final String ATM_MONEY_SHORTAGE = "Atm does not contains the requested amount of money";
   private final AtmRepository atmRepository;
   private final AtmMapper atmMapper;
   private final AtmDataModelMapper atmDataModelMapper;
@@ -42,16 +43,16 @@ public class AtmService {
     long remaining = requested;
     Map<Long, Long> atmDenominationMap = createAtmDenominationMap(atmDomain);
     while (true) {
-      if (isFiftyDenominationAppropriate(remaining, FIFTY, atmDenominationMap)) {
+      if (isActualDenominationAppropriate(remaining, FIFTY, atmDenominationMap)) {
         atmDispenseChange.setEuroFiftyCount(atmDispenseChange.getEuroFiftyCount() + 1);
         remaining = getRemaining(remaining, atmDenominationMap, FIFTY);
-      } else if (isFiftyDenominationAppropriate(remaining, TWENTY, atmDenominationMap)) {
+      } else if (isActualDenominationAppropriate(remaining, TWENTY, atmDenominationMap)) {
         atmDispenseChange.setEuroTwentyCount(atmDispenseChange.getEuroTwentyCount() + 1);
         remaining = getRemaining(remaining, atmDenominationMap, TWENTY);
-      } else if (isFiftyDenominationAppropriate(remaining, TEN, atmDenominationMap)) {
+      } else if (isActualDenominationAppropriate(remaining, TEN, atmDenominationMap)) {
         atmDispenseChange.setEuroTenCount(atmDispenseChange.getEuroTenCount() + 1);
         remaining = getRemaining(remaining, atmDenominationMap, TEN);
-      } else if (isFiftyDenominationAppropriate(remaining, FIVE, atmDenominationMap)) {
+      } else if (isActualDenominationAppropriate(remaining, FIVE, atmDenominationMap)) {
         atmDispenseChange.setEuroFiveCount(atmDispenseChange.getEuroFiveCount() + 1);
         remaining = getRemaining(remaining, atmDenominationMap, FIVE);
       } else {
@@ -63,23 +64,20 @@ public class AtmService {
     }
   }
 
-  //TODO Test
   private long getRemaining(long remaining, Map<Long, Long> atmDenominationMap, long denomination) {
     atmDenominationMap.replace(denomination, atmDenominationMap.get(denomination) - 1);
     remaining -= denomination;
     return remaining;
   }
 
-  //TODO Test
-  boolean isFiftyDenominationAppropriate(long remaining, long denomination,
-                                         Map<Long, Long> atmDenominationMap) {
+  private boolean isActualDenominationAppropriate(long remaining, long denomination,
+                                                  Map<Long, Long> atmDenominationMap) {
     return remaining >= denomination && atmDenominationMap.get(denomination) > 0;
   }
 
-  //TODO Test
-  void checkAtmAllMoney(long requested, AtmDomain atmDomain) {
+  private void checkAtmAllMoney(long requested, AtmDomain atmDomain) {
     if (atmDomain.getAllMoney() < requested) {
-      throw new AtmMoneyShortageException("Atm does not contains the requested amount of money");
+      throw new AtmMoneyShortageException(ATM_MONEY_SHORTAGE);
     }
   }
 

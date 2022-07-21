@@ -1,10 +1,13 @@
 package com.daniel.sipos.zinkworks.service.services;
 
-import static com.daniel.sipos.zinkworks.service.mappers.AtmMapperTest.ATM_DOMAIN;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_DOMAIN;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.FIVE;
 import static com.daniel.sipos.zinkworks.util.Util.FIFTY;
 import static com.daniel.sipos.zinkworks.util.Util.TEN;
 import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hibernate.type.IntegerType.ZERO;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
@@ -25,26 +28,23 @@ import org.springframework.test.context.ActiveProfiles;
 @SpringBootTest
 @ActiveProfiles("test")
 public class AtmServiceTest {
-  public static final long FIVE = 5L;
-  public static final long ZERO = 0L;
 
   @Autowired
-  AtmService atmService;
-
+  private AtmService atmService;
   @Autowired
-  AtmRepository atmRepository;
+  private AtmRepository atmRepository;
 
   @ParameterizedTest
   @MethodSource("createAtmDispenseChangeProvider")
   public void createAtmDispenseChange(Long requested, AtmDispenseChange result) {
-    AtmDispenseChange atmDispenseChange = atmService.createAtmDispenseChange(1L, requested);
+    AtmDispenseChange atmDispenseChange = atmService.createAtmDispenseChange(ATM_ID, requested);
     assertThat(atmDispenseChange).isEqualTo(result);
   }
 
   @Test
   public void checkAtmStorageThrowAtmMoneyShortageException() {
     assertThrows(AtmMoneyShortageException.class,
-        () -> atmService.createAtmDispenseChange(1L, 2000L));
+        () -> atmService.createAtmDispenseChange(ATM_ID, 2000L));
   }
 
   @Test
@@ -108,8 +108,8 @@ public class AtmServiceTest {
     );
   }
 
-  private static AtmDispenseChange createAtmDispenseChange(int euroFiftyCount, int euroTwentyCount,
-                                                           int euroTenCount, int euroFiveCount) {
+  public static AtmDispenseChange createAtmDispenseChange(long euroFiftyCount, long euroTwentyCount,
+                                                          long euroTenCount, long euroFiveCount) {
     return AtmDispenseChange.builder()
         .euroFiftyCount(euroFiftyCount)
         .euroTwentyCount(euroTwentyCount)

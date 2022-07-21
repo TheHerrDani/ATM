@@ -1,16 +1,16 @@
-package com.daniel.sipos.zinkworks.service.mappers.repositoryservice;
+package com.daniel.sipos.zinkworks.service.mappers;
 
 import com.daniel.sipos.zinkworks.repository.entities.Account;
 import com.daniel.sipos.zinkworks.service.domain.AccountDetailsDomain;
 import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class AccountMapper {
 
-  @Autowired
-  AccountDetailsMapper accountDetailsMapper;
+  private final AccountDetailsMapper accountDetailsMapper;
 
   public AccountDomain toDomain(Account account) {
     AccountDetailsDomain accountDetails =
