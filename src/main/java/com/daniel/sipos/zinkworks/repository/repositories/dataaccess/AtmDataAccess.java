@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AtmDataAccess extends JpaRepository<Atm, Long> {
   @Lock(LockModeType.PESSIMISTIC_WRITE)
-  Optional<Atm> findById(Long atmId);
+  Optional<Atm> findById(long atmId);
 }
