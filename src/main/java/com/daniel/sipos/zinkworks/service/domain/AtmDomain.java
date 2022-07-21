@@ -7,15 +7,15 @@ import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Builder
 @ToString
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
+@EqualsAndHashCode
 public class AtmDomain {
   private long id;
 
