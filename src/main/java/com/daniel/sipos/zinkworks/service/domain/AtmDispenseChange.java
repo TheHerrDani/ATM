@@ -3,11 +3,13 @@ package com.daniel.sipos.zinkworks.service.domain;
 import com.daniel.sipos.zinkworks.util.Util;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @Builder
-@Data
 @AllArgsConstructor
+@EqualsAndHashCode
+@Getter
 public class AtmDispenseChange {
   private long euroFiftyCount;
 
@@ -28,5 +30,21 @@ public class AtmDispenseChange {
         .euroTenCount(0)
         .euroFiveCount(0)
         .build();
+  }
+
+  public void increaseFiftyByOne() {
+    this.euroFiftyCount += 1;
+  }
+
+  public void increaseTwentyByOne() {
+    this.euroTwentyCount += 1;
+  }
+
+  public void increaseTenByOne() {
+    this.euroTenCount += 1;
+  }
+
+  public void increaseFiveByOne() {
+    this.euroFiveCount += 1;
   }
 }

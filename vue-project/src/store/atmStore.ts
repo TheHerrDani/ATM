@@ -3,7 +3,7 @@ import {
   getModule,
   Module,
   Mutation,
-  VuexModule,
+  VuexModule
 } from "vuex-module-decorators";
 
 import { Menu } from "@/types";

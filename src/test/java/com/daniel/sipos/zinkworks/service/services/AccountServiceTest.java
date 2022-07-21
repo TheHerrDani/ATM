@@ -1,9 +1,9 @@
 package com.daniel.sipos.zinkworks.service.services;
 
 import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER;
-import static com.daniel.sipos.zinkworks.util.ControllerConstants.ONE_HUNDRED_FIFTY;
 import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID;
 import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_SUM_2;
+import static com.daniel.sipos.zinkworks.util.ControllerConstants.ONE_HUNDRED_FIFTY;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

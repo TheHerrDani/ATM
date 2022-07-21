@@ -1,6 +1,5 @@
 package com.daniel.sipos.zinkworks.repository;
 
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACCOUNT_DETAILS_ID;
 import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACCOUNT_DETAILS_ID_ZERO;
 import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACTUAL_BALANCE;
 import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.EIGHT_HUNDRED;

@@ -2,13 +2,14 @@ package com.daniel.sipos.zinkworks.service.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @Builder
-@Data
 @AllArgsConstructor
+@EqualsAndHashCode
+@Getter
 public class DispenseDataDomain {
   private AtmDispenseChange atmDispenseChange;
   private AccountDomain accountDomain;
-
 }

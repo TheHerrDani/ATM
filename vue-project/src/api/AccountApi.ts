@@ -1,13 +1,11 @@
-import AccountDataModel from "@/types/AccountDataModel";
-import { Vue } from "vue-property-decorator";
-import CallHandler from "./CallHandler";
-import AtmStore from "../store/atmStore";
-import DispenseMoneyModel from "@/types/DispenseMoneyModel";
-import DispenseDataModel from "@/types/DispenseDataModel";
-import CheckModalStore from "../store/checkModalStore";
 import callHandlerStore from "@/store/callHandlerStore";
+import AccountDataModel from "@/types/AccountDataModel";
+import DispenseDataModel from "@/types/DispenseDataModel";
+import DispenseMoneyModel from "@/types/DispenseMoneyModel";
 import Axios from "axios-observable";
-import atmStore from "../store/atmStore";
+import { Vue } from "vue-property-decorator";
+import { default as AtmStore, default as atmStore } from "../store/atmStore";
+import CheckModalStore from "../store/checkModalStore";
 import AtmApi from "./AtmApi";
 
 export default class AccountApi extends Vue {

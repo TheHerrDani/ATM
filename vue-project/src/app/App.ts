@@ -1,13 +1,13 @@
+import { Menu } from "@/types";
 import { Component, Vue } from "vue-property-decorator";
 import AtmStore from "../store/atmStore";
-import { Menu } from "@/types";
 
-import HeaderUI from "../components/HeaderUI/HeaderUI.vue";
-import ProcessesUI from "../components/ProcessesUI/ProcessesUI.vue";
-import FooterUI from "../components/FooterUI/FooterUI.vue";
-import InfoUI from "../components/InfoUI/InfoUI.vue";
-import TokenStore from "@/store/TokenStore";
 import LoginPage from "@/components/LoginPage/LoginPage.vue";
+import TokenStore from "@/store/TokenStore";
+import FooterUI from "../components/FooterUI/FooterUI.vue";
+import HeaderUI from "../components/HeaderUI/HeaderUI.vue";
+import InfoUI from "../components/InfoUI/InfoUI.vue";
+import ProcessesUI from "../components/ProcessesUI/ProcessesUI.vue";
 @Component({
   components: {
     LoginPage,

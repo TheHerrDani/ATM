@@ -36,6 +36,8 @@
                                 :value="uncheckedCustomAmount"
                                 @input="customAmountChanged($event)" 
                                 type="text" 
+                                pattern="[0-9]{9}"
+                                title="Only numbers are allowed"
                                 maxlength="9" 
                                 id="customAmount" 
                                 autocomplete="off"

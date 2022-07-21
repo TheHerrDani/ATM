@@ -1,5 +1,19 @@
 version: '3'
 services:
+  mysqlserver:
+    image: mysql:8.0.29
+    environment:
+      MYSQL_ROOT_PASSWORD: ZINKWORKS
+      MYSQL_DATABASE: zinkworks
+      MYSQL_USER: ZINKWORKS
+      MYSQL_PASSWORD: ZINKWORKS
+    ports:
+      - "3306:3306"
+    networks:
+      - common-network
+    restart: always
+    volumes:
+      - "./db/dump.sql:/docker-entrypoint-initdb.d/dump.sql"
   api:
     image: 'herrdani/zinkworks:latest'
     hostname: api
@@ -8,20 +22,22 @@ services:
       context: ./../../
     ports:
       - '8080:8080'
+    depends_on:
+      - mysqlserver
+    networks:
+      - common-network
+    restart:
+      always
   client:
-    image: 'herrdani/zinkworks:latest'
+    image: 'herrdani/zinkworks-frontend:latest'
     hostname: client
     build:
       dockerfile: Dockerfile
-      context: ../../frontend/
+      context: ../../vue-project/
     ports:
       - '3000:3000'
-  mysqlserver:
-    image: mysql/mysql-server:8.0.29
-    environment:
-      MYSQL_ROOT_PASSWORD: ZINKWORKS
-      MYSQL_DATABASE: zinkworks
-      MYSQL_USER: ZINKWORKS
-      MYSQL_PASSWORD: ZINKWORKS
-    ports:
-      - "3306:3306"
+    networks:
+      - common-network
+networks:
+  common-network:
+    driver: bridge
