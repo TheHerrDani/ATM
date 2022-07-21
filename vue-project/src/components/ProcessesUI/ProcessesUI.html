@@ -1,0 +1,88 @@
+<div class="processes">
+    <div>
+        <template v-if="selectedMenu === menuEnum.HOME">
+            <div class="action-btns-container">
+                <div class="action-btn-wrapper">
+                    <button 
+                        class="action-btn"
+                        @click="setSelectedMenu(menuEnum.WITHDRAWAL)"
+                    >
+                        Withdraw cash
+                    </button>
+                </div>
+
+                <div class="action-btn-wrapper">
+                    <button 
+                        class="action-btn"
+                        @click="setSelectedMenu(menuEnum.ATM_STATUS)"
+                    >
+                        ATM status
+                    </button>
+                </div>
+            </div>
+        </template>
+
+        <template v-if="selectedMenu === menuEnum.WITHDRAWAL">
+            <div class="action-btns-container">
+                <div v-for="note in notes" :key="note" class="action-btn-wrapper">
+                    <button @click="noteClicked(note)" class="action-btn" :class="{ selected: selectedNote === note }">€ {{ note }}</button>                    
+                </div>
+            
+                <div class="action-btn-wrapper">
+                    <div class="action-btn other" @click="clearSelectedNote()">
+                        <div class="input-wrapper">
+                            <label for="customAmount">Other:</label>
+                            <input
+                                :value="uncheckedCustomAmount"
+                                @input="customAmountChanged($event)" 
+                                type="text" 
+                                maxlength="9" 
+                                id="customAmount" 
+                                autocomplete="off"
+                            />
+                        </div>
+                        
+                        <div class="hint" :class="{ errorText: isError }">The amount must be a multiple of 5.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transaction-msg-wrapper">
+                <div v-if="isError" class="transaction-msg error">
+                    <h3>Error happened</h3>
+                    <div>{{errorMsg}}</div>
+                </div>
+
+                <div v-if="isSuccess" class="transaction-msg success">
+                    <h3>Successful transaction</h3>
+                    <div>€ {{withdrawalAmount}} was succesfully withdrawn from your account.</div>
+                </div>
+            </div>
+
+        </template>
+        <template v-if="selectedMenu === menuEnum.ATM_STATUS">
+            <div class="info">
+                <div class="block">
+                  <div class="title">Remaining money in the ATM:</div>
+                  <div class="data">{{atmMoney}}</div>
+                </div>
+                <div class="block">
+                  <div class="title">Remaining fifty euros:</div>
+                  <div class="data">{{euroFiftyCount}}</div>
+                </div>
+                <div class="block">
+                    <div class="title">Remaining twenty euros:</div>
+                    <div class="data">{{euroTwentyCount}}</div>
+                </div>
+                <div class="block">
+                    <div class="title">Remaining ten euros:</div>
+                    <div class="data">{{euroTenCount}}</div>
+                </div>
+                <div class="block">
+                    <div class="title">Remaining five euros:</div>
+                    <div class="data">{{euroFiveCount}}</div>
+                </div>
+              </div>
+        </template>
+    </div>
+</div>

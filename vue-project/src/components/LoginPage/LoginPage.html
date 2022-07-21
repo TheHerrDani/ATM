@@ -1,0 +1,24 @@
+<div class="processes">
+  <div class="input-wrapper">
+    <label for="accountNumber">accountNumber:</label>
+    <input
+      v-model="accountNumber"
+      type="text"
+      id="accountNumber"
+      autocomplete="off"
+    />
+  </div>
+  <div class="input-wrapper">
+    <label for="pin">PIN:</label>
+    <input
+      v-model="pin"
+      type="text"
+      maxlength="4"
+      id="pin"
+      autocomplete="off"
+    />
+  </div>
+  <div class="action-btn-wrapper">
+    <button class="action-btn" @click="login()">LOGIN</button>
+  </div>
+</div>

@@ -22,3 +22,10 @@ logging:
 jwt:
   private.key: classpath:static/app.key
   public.key: classpath:static/app.pub
+springdoc:
+  swagger-ui:
+    path: /openapi/swagger-ui.html
+  api-docs:
+    path: /openapi/v3/api-docs
+  packagesToScan: com.daniel.sipos.zinkworks.controller
+  pathsToMatch: /**

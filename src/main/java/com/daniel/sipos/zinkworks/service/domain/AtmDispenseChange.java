@@ -1,18 +1,25 @@
 package com.daniel.sipos.zinkworks.service.domain;
 
+import com.daniel.sipos.zinkworks.util.Util;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-@Data
 @Builder
+@Data
+@AllArgsConstructor
 public class AtmDispenseChange {
-  private Integer euroFiftyCount;
+  private long euroFiftyCount;
 
-  private Integer euroTwentyCount;
+  private long euroTwentyCount;
 
-  private Integer euroTenCount;
+  private long euroTenCount;
 
-  private Integer euroFiveCount;
+  private long euroFiveCount;
+
+  public long dispensedAmount() {
+    return Util.calculateMoney(euroFiftyCount, euroTwentyCount, euroTenCount, euroFiveCount);
+  }
 
   public static AtmDispenseChange buildEmpty() {
     return AtmDispenseChange.builder()
