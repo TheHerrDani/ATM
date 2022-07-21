@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
@@ -21,20 +21,16 @@ public class AccountRepositoryTest {
 
   @Autowired
   private AccountRepository accountRepository;
-  @Autowired
-  private BCryptPasswordEncoder passwordEncoder;
 
   @Test
   @Transactional
   public void findAccountByAccountNumber() {
-
     Account account = accountRepository.findAccountByAccountNumber(ACCOUNT_NUMBER);
 
     assertThat(account.getAccountNumber()).isEqualTo(ACCOUNT_NUMBER);
-    assertThat(passwordEncoder.matches(PIN_NUMBER, account.getPin())).isTrue();
+    assertThat(account.getPin()).isEqualTo(PIN_NUMBER);
     assertThat(account.getAccountDetails().getActualBalance()).isEqualTo(EIGHT_HUNDRED);
     assertThat(account.getAccountDetails().getOverdraft()).isEqualTo(TWO_HUNDRED);
-
 
 
   }

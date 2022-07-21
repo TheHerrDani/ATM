@@ -10,4 +10,9 @@ public class Util {
   public static final long TWENTY = 20L;
   public static final long TEN = 10L;
   public static final long FIVE = 5L;
+
+  public static long calculateMoney(long fiftyCount, long twentyCount, long tenCount,
+                                    long fiveCount) {
+    return fiftyCount * FIFTY + twentyCount * TWENTY + tenCount * TEN + fiveCount * FIVE;
+  }
 }
