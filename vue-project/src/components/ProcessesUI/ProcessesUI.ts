@@ -109,11 +109,7 @@ export default class Process extends Vue {
     const customValidation = value.match("^[0-9]*$");
     const isValid = customValidation !== null && customValidation.length > 0;
     if (!isValid) {
-      console.log(isValid);
-      (event.target as HTMLInputElement).value = value.substring(
-        0,
-        value.length - 1
-      );
+      (event.target as HTMLInputElement).value = value.substring(0, value.length - 1);
       return;
     }
     this.uncheckedCustomAmount = value;

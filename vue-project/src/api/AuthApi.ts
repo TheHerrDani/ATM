@@ -34,7 +34,10 @@ export default class AuthApi extends Vue {
               }
             );
           },
-          error: (error) => console.error(error),
+          error: (error) =>{ 
+            console.error(error);
+            TokenStore.setLoginError(error.message);
+          },
         });
     } catch (exp) {
       console.error(exp);
