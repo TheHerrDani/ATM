@@ -1,8 +1,14 @@
 FROM maven:3-openjdk-18-slim as build
 
-WORKDIR /app
-COPY ./target/zinkworks-0.0.1-SNAPSHOT.jar /app
-
 EXPOSE 8080
+WORKDIR /app
+COPY . .
 
-CMD ["java", "-jar", "zinkworks-0.0.1-SNAPSHOT.jar"]
+RUN mvn -q -ntp -B -am dependency:go-offline
+RUN mvn install -DskipTests -P production
+RUN mvn -q -ntp -B package -DskipTests
+
+RUN mkdir -p /jar-layers
+WORKDIR /jar-layers
+# Extract JAR layers
+RUN java -Djarmode=layertools -jar /build/rest-service/target/*.jar extract
