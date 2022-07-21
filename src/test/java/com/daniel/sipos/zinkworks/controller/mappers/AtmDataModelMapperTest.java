@@ -1,32 +1,31 @@
-package com.daniel.sipos.zinkworks.controller.mapper.servicecontroller;
+package com.daniel.sipos.zinkworks.controller.mappers;
 
-import static com.daniel.sipos.zinkworks.repository.AccountDetailsRepositoryTest.ACCOUNT_DETAILS_ID;
-import static com.daniel.sipos.zinkworks.repository.AccountDetailsRepositoryTest.ACTUAL_BALANCE;
-import static com.daniel.sipos.zinkworks.repository.AccountDetailsRepositoryTest.OVERDRAFT;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_DOMAIN;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_SUM_2;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.TEN;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.daniel.sipos.zinkworks.repository.entities.AccountDetails;
-import com.daniel.sipos.zinkworks.service.domain.AccountDetailsDomain;
+import com.daniel.sipos.zinkworks.controller.models.AtmDataModel;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
 @ActiveProfiles("test")
 public class AtmDataModelMapperTest {
+
+  @Autowired
+  private AtmDataModelMapper atmDataModelMapper;
+
   @Test
   public void toModel() {
+    AtmDataModel atmDataModel = atmDataModelMapper.toModel(ATM_DOMAIN);
 
-    AccountDetails accountDetails = AccountDetails.builder()
-        .id(ACCOUNT_DETAILS_ID)
-        .actualBalance(ACTUAL_BALANCE)
-        .overdraft(OVERDRAFT)
-        .build();
-
-    AccountDetailsDomain accountDetailsDomain = accountDetailsMapper.toDomain(accountDetails);
-
-    assertThat(accountDetailsDomain.getId()).isEqualTo(ACCOUNT_DETAILS_ID);
-    assertThat(accountDetailsDomain.getActualBalance()).isEqualTo(ACTUAL_BALANCE);
-    assertThat(accountDetailsDomain.getOverdraft()).isEqualTo(OVERDRAFT);
+    assertThat(atmDataModel.getAtmAllMoney()).isEqualTo(EXPECTED_SUM_2);
+    assertThat(atmDataModel.getEuroFiftyCount()).isEqualTo(TEN);
+    assertThat(atmDataModel.getEuroTwentyCount()).isEqualTo(TEN);
+    assertThat(atmDataModel.getEuroTenCount()).isEqualTo(TEN);
+    assertThat(atmDataModel.getEuroFiveCount()).isEqualTo(TEN);
   }
 }
