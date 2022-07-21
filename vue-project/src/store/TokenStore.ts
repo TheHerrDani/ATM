@@ -3,15 +3,14 @@ import {
   getModule,
   Module,
   Mutation,
-  VuexModule,
+  VuexModule
 } from "vuex-module-decorators";
 import store from "./store";
 
 @Module({ dynamic: true, namespaced: true, name: "TokenStore", store })
 class TokenStore extends VuexModule {
-  
-  token = '';
-  loginError = '';
+  token = "";
+  loginError = "";
 
   headerConfig: { headers: { Authorization: string } } = {
     headers: { Authorization: `Bearer ${this.token}` },

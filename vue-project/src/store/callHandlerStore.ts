@@ -4,7 +4,7 @@ import {
   getModule,
   Module,
   Mutation,
-  VuexModule,
+  VuexModule
 } from "vuex-module-decorators";
 
 import store from "./store";

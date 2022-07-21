@@ -1,12 +1,11 @@
-import { Vue } from "vue-property-decorator";
-import CallHandler from "./CallHandler";
-import Axios from "axios-observable";
-import TokenStore from "@/store/TokenStore";
-import CallHandlerStore from "@/store/callHandlerStore";
-import { AxiosRequestConfig } from "axios";
-import AccountApi from "./AccountApi";
 import atmStore from "@/store/atmStore";
+import CallHandlerStore from "@/store/callHandlerStore";
+import TokenStore from "@/store/TokenStore";
+import Axios from "axios-observable";
+import { Vue } from "vue-property-decorator";
+import AccountApi from "./AccountApi";
 import AtmApi from "./AtmApi";
+import CallHandler from "./CallHandler";
 
 export default class AuthApi extends Vue {
   private static authApiInstance: AuthApi;
@@ -29,12 +28,16 @@ export default class AuthApi extends Vue {
             CallHandler.createCallHandler(TokenStore.getHeaderConfig).then(
               async (response) => {
                 await CallHandlerStore.setCallHandler(response);
-                AccountApi.getAccountApiInstance().information(atmStore.getAccountNumber);
-                AtmApi.getAtmApiInstance().setAtmStateInformation(atmStore.getATM_ID);
+                AccountApi.getAccountApiInstance().information(
+                  atmStore.getAccountNumber
+                );
+                AtmApi.getAtmApiInstance().setAtmStateInformation(
+                  atmStore.getATM_ID
+                );
               }
             );
           },
-          error: (error) =>{ 
+          error: (error) => {
             console.error(error);
             TokenStore.setLoginError(error.message);
           },

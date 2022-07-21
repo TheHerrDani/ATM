@@ -1,11 +1,10 @@
-import { Component, Vue } from "vue-property-decorator";
 import EventBus from "@/eventBus";
+import { Component, Vue } from "vue-property-decorator";
 
-import AtmStore from "../../store/atmStore";
-import CheckModalStore from "../../store/checkModalStore";
-import { Menu } from "@/types";
 import AccountApi from "@/api/AccountApi";
-import atmStore from "../../store/atmStore";
+import { Menu } from "@/types";
+import { default as AtmStore, default as atmStore } from "../../store/atmStore";
+import CheckModalStore from "../../store/checkModalStore";
 
 @Component({})
 export default class Process extends Vue {
@@ -109,7 +108,10 @@ export default class Process extends Vue {
     const customValidation = value.match("^[0-9]*$");
     const isValid = customValidation !== null && customValidation.length > 0;
     if (!isValid) {
-      (event.target as HTMLInputElement).value = value.substring(0, value.length - 1);
+      (event.target as HTMLInputElement).value = value.substring(
+        0,
+        value.length - 1
+      );
       return;
     }
     this.uncheckedCustomAmount = value;
