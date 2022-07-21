@@ -54,7 +54,6 @@ public class SecurityConfig {
         .antMatchers(ENABLED_PATHS)
         .permitAll()
         .anyRequest().authenticated()
-        .and().formLogin()
         .and().cors().configurationSource(corsConfig.corsConfigurationSource())
         .and().headers().frameOptions().disable()
         .and().csrf().disable()
