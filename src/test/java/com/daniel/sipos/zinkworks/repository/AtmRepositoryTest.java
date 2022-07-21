@@ -1,9 +1,16 @@
 package com.daniel.sipos.zinkworks.repository;
 
+import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID_TWO;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_FIFTY;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_FIVE;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_TEN;
+import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_TWENTY;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.daniel.sipos.zinkworks.repository.entities.Atm;
 import com.daniel.sipos.zinkworks.repository.repositories.AtmRepository;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,14 +21,8 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 public class AtmRepositoryTest {
 
-  public static final long ATM_ID = 1L;
-  public static final long ATM_ID_TWO = 2L;
-  public static final long EXPECTED_FIFTY = 10L;
-  public static final long EXPECTED_TWENTY = 30L;
-  public static final long EXPECTED_TEN = 30L;
-  public static final long EXPECTED_FIVE = 20L;
   @Autowired
-  AtmRepository atmRepository;
+  private AtmRepository atmRepository;
 
   @Test
   public void updateAtm() {

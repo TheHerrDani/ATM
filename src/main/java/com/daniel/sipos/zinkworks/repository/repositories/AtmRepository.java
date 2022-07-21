@@ -4,16 +4,17 @@ import com.daniel.sipos.zinkworks.repository.entities.Atm;
 import com.daniel.sipos.zinkworks.repository.repositories.dataaccess.AtmDataAccess;
 import java.util.NoSuchElementException;
 import javax.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@AllArgsConstructor
 public class AtmRepository {
-  @Autowired
-  AtmDataAccess atmDataAccess;
+
+  private final AtmDataAccess atmDataAccess;
 
   @Transactional
-  public Atm findAtmById(Long atmId) {
+  public Atm findAtmById(long atmId) {
     return atmDataAccess.findById(atmId)
         .orElseThrow(() -> new NoSuchElementException("There is no atm with the given id"));
   }

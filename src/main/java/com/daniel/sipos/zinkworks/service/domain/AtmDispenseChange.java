@@ -1,18 +1,32 @@
 package com.daniel.sipos.zinkworks.service.domain;
 
+import static com.daniel.sipos.zinkworks.util.Util.FIFTY;
+import static com.daniel.sipos.zinkworks.util.Util.FIVE;
+import static com.daniel.sipos.zinkworks.util.Util.TEN;
+import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-@Data
 @Builder
+@Data
+@AllArgsConstructor
 public class AtmDispenseChange {
-  private Integer euroFiftyCount;
+  private long euroFiftyCount;
 
-  private Integer euroTwentyCount;
+  private long euroTwentyCount;
 
-  private Integer euroTenCount;
+  private long euroTenCount;
 
-  private Integer euroFiveCount;
+  private long euroFiveCount;
+
+  public long dispensedAmount() {
+    return (this.getEuroFiftyCount() * FIFTY) +
+        (this.getEuroTwentyCount() * TWENTY) +
+        (this.getEuroTenCount() * TEN) +
+        (this.getEuroFiveCount() * FIVE);
+  }
 
   public static AtmDispenseChange buildEmpty() {
     return AtmDispenseChange.builder()

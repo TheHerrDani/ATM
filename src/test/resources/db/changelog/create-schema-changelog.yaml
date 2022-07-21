@@ -21,7 +21,7 @@ databaseChangeLog:
                   type: varchar(50)
               - column:
                   name: pin
-                  type: varchar(4)
+                  type: varchar(100)
         - createTable:
             tableName: account_details
             columns:

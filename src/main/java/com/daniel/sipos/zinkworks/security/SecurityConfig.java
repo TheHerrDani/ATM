@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -30,6 +31,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+  public static final String[] ENABLED_PATHS =
+      {"/favicon.ico", "/openapi/**", "/api/login/**", "/api/logout/**"};
   @Value("${jwt.public.key}")
   RSAPublicKey key;
 
@@ -39,11 +42,17 @@ public class SecurityConfig {
   @Autowired
   CorsConfig corsConfig;
 
+  private final Customizer<LogoutConfigurer<HttpSecurity>> logoutConfigurerCustomizer =
+      logout -> logout
+          .logoutUrl("/api/logout")
+          .invalidateHttpSession(true);
+
   @Bean
   public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
     http.authorizeRequests()
-        .antMatchers("/favicon.ico").permitAll()
+        .antMatchers(ENABLED_PATHS)
+        .permitAll()
         .anyRequest().authenticated()
         .and().cors().configurationSource(corsConfig.corsConfigurationSource())
         .and().headers().frameOptions().disable()
@@ -54,7 +63,8 @@ public class SecurityConfig {
             (session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .exceptionHandling((exceptions) -> exceptions
             .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
-            .accessDeniedHandler(new BearerTokenAccessDeniedHandler()));
+            .accessDeniedHandler(new BearerTokenAccessDeniedHandler()))
+        .logout(logoutConfigurerCustomizer);
     return http.build();
   }
 

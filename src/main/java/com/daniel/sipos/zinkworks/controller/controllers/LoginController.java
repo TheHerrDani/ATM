@@ -1,8 +1,8 @@
-package com.daniel.sipos.zinkworks.controller;
+package com.daniel.sipos.zinkworks.controller.controllers;
 
 import java.time.Instant;
 import java.util.stream.Collectors;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/token")
-public class TokenController {
+@RequestMapping(path = "/api/login")
+@AllArgsConstructor
+public class LoginController {
 
-  @Autowired
-  JwtEncoder encoder;
+  private final JwtEncoder encoder;
 
   @PostMapping("/create-token")
   public String createToken(Authentication authentication) {
@@ -35,5 +35,4 @@ public class TokenController {
         .build();
     return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
   }
-
 }
