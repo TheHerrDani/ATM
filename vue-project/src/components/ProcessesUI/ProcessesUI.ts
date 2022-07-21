@@ -15,7 +15,7 @@ export default class Process extends Vue {
   uncheckedCustomAmount = "";
 
   get atmMoney() {
-    return atmStore.getAtmStateInformation.atmAllMoney;
+    return "€ " + atmStore.getAtmStateInformation.atmAllMoney;
   }
 
   get euroFiftyCount() {

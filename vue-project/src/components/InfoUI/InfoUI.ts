@@ -9,21 +9,21 @@ import atmStore from "@/store/atmStore";
 @Component({})
 export default class InfoUI extends Vue {
   get accountNumber() {
-    return atmStore.getAccountNumber;
+    return "€ " + atmStore.getAccountNumber;
   }
   get balance() {
-    return atmStore.getAccountInformation.actualBalance;
+    return "€ " + atmStore.getAccountInformation.actualBalance;
   }
 
   get overdraft() {
-    return atmStore.getAccountInformation.overdraft;
+    return "€ " + atmStore.getAccountInformation.overdraft;
   }
   
   get dispensedMoney() {
-    return atmStore.getLastDispenseInformation.dispensedAmount;
+    return "€ " + atmStore.getLastDispenseInformation.dispensedAmount;
   }
   get remainingDispensableAmount() {
-    return atmStore.getLastDispenseInformation.remainingDispensableAmount;
+    return "€ " + atmStore.getLastDispenseInformation.remainingDispensableAmount;
   }
   get euroFiftyCount() {
     return atmStore.getLastDispenseInformation.euroFiftyCount;
