@@ -1,10 +1,6 @@
 package com.daniel.sipos.zinkworks.service.domain;
 
-import static com.daniel.sipos.zinkworks.util.Util.FIFTY;
-import static com.daniel.sipos.zinkworks.util.Util.FIVE;
-import static com.daniel.sipos.zinkworks.util.Util.TEN;
-import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
-
+import com.daniel.sipos.zinkworks.util.Util;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -28,9 +24,6 @@ public class AtmDomain {
   private long euroFiveCount;
 
   public long getAllMoney() {
-    return (this.getEuroFiftyCount() * FIFTY) +
-        (this.getEuroTwentyCount() * TWENTY) +
-        (this.getEuroTenCount() * TEN) +
-        (this.getEuroFiveCount() * FIVE);
+    return Util.calculateMoney(euroFiftyCount, euroTwentyCount, euroTenCount, euroFiveCount);
   }
 }

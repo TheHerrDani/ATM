@@ -1,0 +1,17 @@
+<div id="app">
+  <div v-if="isLoggidIn" class="wrapper">
+    <HeaderUI />
+    <div class="content">
+      <div class="info-ui">
+        <InfoUI />
+      </div>
+      <div class="process-and-footer-ui">
+        <ProcessesUI />
+        <FooterUI v-if="selectedMenu !== menuEnum.HOME" />
+      </div>
+    </div>
+  </div>
+  <div v-else class="wrapper">
+    <LoginPage />
+  </div>
+</div>

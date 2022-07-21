@@ -1,0 +1,132 @@
+.action-btns-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.action-btn-wrapper {
+    flex-basis: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.action-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #00d6ff;
+    border: none;
+    height: 90px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.action-btn:hover {
+    cursor: pointer;
+    background-color: #00c9f1;
+}
+.action-btn.selected {
+    border: 3px solid #fff;
+}
+
+.other {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 1.8rem;
+    background-color: #2c61be;
+}
+
+.other:hover {
+    background-color: #2a5bb1;
+}
+
+.input-wrapper {
+    display: flex;
+}
+
+.other input, .other label {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.other label {
+    margin-right: 1rem;
+}
+
+.other input {
+    width: 100%;
+    margin-top: -3px;
+}
+
+.other input, .other input:focus-visible {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+}
+
+.hint {
+    color: #00d6ff;
+    font-size: 0.75rem;
+    display: block;
+    padding-top: 5px;
+}
+
+.errorText {
+    color: #f6006b;
+}
+
+.transaction-msg-wrapper {
+    min-height: 110px;
+    display: flex;
+    padding: 0 8px;
+}
+
+.transaction-msg {
+    flex-basis: 100%;
+    align-self: center;
+    color: #fff;
+    padding: 0.4rem 1.4rem;
+}
+
+.transaction-msg h3 {
+    margin: 0.2rem 0;
+}
+
+.transaction-msg.error {
+    background-color: #f6006b;
+}
+.transaction-msg.success {
+    background-color: #2dca2e;
+}
+
+
+.info {
+    display: flex;
+    justify-content: space-between;
+ }
+ 
+ .info .block {
+     margin-bottom: 2.5rem;
+ }
+ 
+ .info .block .title {
+     color: #00d6ff;
+     font-size: 0.875rem;
+ }
+ 
+ .info .block .data {
+     font-weight: 700;
+     font-size: 1.75rem;
+ }
+
+
+@media (min-width: 576px) {
+    .action-btn-wrapper {
+        flex-basis: 50%;
+    }
+}

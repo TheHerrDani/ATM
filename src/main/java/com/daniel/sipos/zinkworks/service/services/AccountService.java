@@ -35,7 +35,7 @@ public class AccountService {
   private final AccountDetailsMapper accountDetailsMapper;
   private final AtmService atmService;
 
-  @Transactional(readOnly = true)
+  @Transactional
   public AccountDataModel getAccountInformation(String accountNumber) {
     return accountDataMapper.toModel(
         accountMapper.toDomain(
