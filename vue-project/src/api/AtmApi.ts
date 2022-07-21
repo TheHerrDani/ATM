@@ -1,9 +1,8 @@
-import { Vue } from "vue-property-decorator";
-import CallHandler from "./CallHandler";
-import AtmStore from "../store/atmStore";
-import AtmDataModel from "@/types/AtmDataModel";
 import callHandlerStore from "@/store/callHandlerStore";
+import AtmDataModel from "@/types/AtmDataModel";
 import Axios from "axios-observable";
+import { Vue } from "vue-property-decorator";
+import AtmStore from "../store/atmStore";
 
 export default class AtmApi extends Vue {
   private static atmApiInstance: AtmApi;

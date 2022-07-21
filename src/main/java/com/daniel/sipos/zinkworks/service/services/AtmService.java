@@ -23,7 +23,8 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class AtmService {
 
-  public static final String ATM_MONEY_SHORTAGE = "Atm does not contains the requested amount of money";
+  public static final String ATM_MONEY_SHORTAGE =
+      "Atm does not contains the requested amount of money";
   private final AtmRepository atmRepository;
   private final AtmMapper atmMapper;
   private final AtmDataModelMapper atmDataModelMapper;
@@ -44,16 +45,16 @@ public class AtmService {
     Map<Long, Long> atmDenominationMap = createAtmDenominationMap(atmDomain);
     while (true) {
       if (isActualDenominationAppropriate(remaining, FIFTY, atmDenominationMap)) {
-        atmDispenseChange.setEuroFiftyCount(atmDispenseChange.getEuroFiftyCount() + 1);
+        atmDispenseChange.increaseFiftyByOne();
         remaining = getRemaining(remaining, atmDenominationMap, FIFTY);
       } else if (isActualDenominationAppropriate(remaining, TWENTY, atmDenominationMap)) {
-        atmDispenseChange.setEuroTwentyCount(atmDispenseChange.getEuroTwentyCount() + 1);
+        atmDispenseChange.increaseTwentyByOne();
         remaining = getRemaining(remaining, atmDenominationMap, TWENTY);
       } else if (isActualDenominationAppropriate(remaining, TEN, atmDenominationMap)) {
-        atmDispenseChange.setEuroTenCount(atmDispenseChange.getEuroTenCount() + 1);
+        atmDispenseChange.increaseTenByOne();
         remaining = getRemaining(remaining, atmDenominationMap, TEN);
       } else if (isActualDenominationAppropriate(remaining, FIVE, atmDenominationMap)) {
-        atmDispenseChange.setEuroFiveCount(atmDispenseChange.getEuroFiveCount() + 1);
+        atmDispenseChange.increaseFiveByOne();
         remaining = getRemaining(remaining, atmDenominationMap, FIVE);
       } else {
         throw new AtmDenominationException("Atm does not contains the exact amount of money");
