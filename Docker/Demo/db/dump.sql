@@ -31,8 +31,8 @@ CREATE TABLE `account` (
 
 
 insert  into `account`(`id`,`account_details`,`account_number`,`pin`) values
-(1,1,'123456789','1234'),
-(2,2,'987654321','4321');
+(1,1,'123456789','$2a$12$0Qms86TBJ5rYEBH3qYDVdesx0xBKWrC5X6Pbug1XJbftMLvjqaJAa'),
+(2,2,'987654321','$2a$12$.6VmJ6BS/u1LxG2a2SkVheaEZd7hoITothGRgDmn/cJ0LLASensZW');
 
 DROP TABLE IF EXISTS `atm`;
 
