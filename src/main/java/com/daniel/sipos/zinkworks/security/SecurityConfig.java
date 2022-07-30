@@ -37,7 +37,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
   static final String[] ENABLED_PATHS =
-      {"/favicon.ico", "/openapi/**", "/api/login/**", "/api/logout/**"};
+      {"/favicon.ico", "/openapi/**", "/api/login/**", "/api/logout/**", "/actuator/**"};
   @Value("${jwt.public.key}")
   RSAPublicKey key;
 
