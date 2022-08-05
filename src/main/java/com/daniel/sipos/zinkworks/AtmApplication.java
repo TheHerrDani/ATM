@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ZinkworksApplication {
+public class AtmApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(ZinkworksApplication.class, args);
+    SpringApplication.run(AtmApplication.class, args);
   }
 
 }

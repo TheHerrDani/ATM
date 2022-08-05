@@ -1,7 +1,7 @@
 ### How to run the project
 
 #### Clone the project.
-#### Go to folder /Zinkworks/Docker/Demo and give the command "docker compose up" in a cmd tool.
+#### Go to folder ./Docker/Demo and give the command "docker compose up" in a cmd tool.
 
 #### After the installation, the project will be live on: localhost:3000
 #### Only holds the two example from the task are saved in the database: 
