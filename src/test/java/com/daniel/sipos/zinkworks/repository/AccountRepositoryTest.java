@@ -1,7 +1,6 @@
 package com.daniel.sipos.zinkworks.repository;
 
 import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.PIN_NUMBER;
 import static com.daniel.sipos.zinkworks.util.AccountConstants.TWO_HUNDRED;
 import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.EIGHT_HUNDRED;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,6 +11,7 @@ import javax.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
@@ -21,13 +21,17 @@ public class AccountRepositoryTest {
   @Autowired
   private AccountRepository accountRepository;
 
+
+  @Autowired
+  private BCryptPasswordEncoder bCryptPasswordEncoder;
+
   @Test
   @Transactional
   public void findAccountByAccountNumber() {
     Account account = accountRepository.findAccountByAccountNumber(ACCOUNT_NUMBER);
 
     assertThat(account.getAccountNumber()).isEqualTo(ACCOUNT_NUMBER);
-    assertThat(account.getPin()).isEqualTo(PIN_NUMBER);
+    assertThat(bCryptPasswordEncoder.matches("1234", account.getPin())).isTrue();
     assertThat(account.getAccountDetails().getActualBalance()).isEqualTo(EIGHT_HUNDRED);
     assertThat(account.getAccountDetails().getOverdraft()).isEqualTo(TWO_HUNDRED);
 

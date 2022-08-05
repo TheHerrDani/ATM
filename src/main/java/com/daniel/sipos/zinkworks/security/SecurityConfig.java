@@ -1,11 +1,16 @@
 package com.daniel.sipos.zinkworks.security;
 
+import static java.security.DrbgParameters.Capability.RESEED_ONLY;
+
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import java.security.DrbgParameters;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +23,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -69,9 +74,13 @@ public class SecurityConfig {
   }
 
   @Bean
-  //TODO upgrade to encypting version
-  public static PasswordEncoder passwordEncoder() {
-    return NoOpPasswordEncoder.getInstance();
+  public static PasswordEncoder passwordEncoder() throws NoSuchAlgorithmException {
+    DrbgParameters.Instantiation instantiation =
+        DrbgParameters.instantiation(128, RESEED_ONLY, null);
+    SecureRandom drbg =
+        SecureRandom.getInstance("DRBG", instantiation);
+    return new BCryptPasswordEncoder(BCryptPasswordEncoder.BCryptVersion.$2A, 12,
+        drbg);
   }
 
   @Bean
