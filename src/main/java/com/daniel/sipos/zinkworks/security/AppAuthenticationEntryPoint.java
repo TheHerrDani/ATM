@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.security;
+package com.daniel.sipos.atm.security;
 
 import java.io.IOException;
 import java.io.PrintWriter;

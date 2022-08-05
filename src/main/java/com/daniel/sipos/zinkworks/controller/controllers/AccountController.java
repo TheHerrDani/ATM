@@ -1,10 +1,10 @@
-package com.daniel.sipos.zinkworks.controller.controllers;
+package com.daniel.sipos.atm.controller.controllers;
 
-import com.daniel.sipos.zinkworks.controller.mappers.DispenseDataModelMapper;
-import com.daniel.sipos.zinkworks.controller.models.AccountDataModel;
-import com.daniel.sipos.zinkworks.controller.models.DispenseDataModel;
-import com.daniel.sipos.zinkworks.controller.models.DispenseMoneyModel;
-import com.daniel.sipos.zinkworks.service.services.AccountService;
+import com.daniel.sipos.atm.controller.mappers.DispenseDataModelMapper;
+import com.daniel.sipos.atm.controller.models.AccountDataModel;
+import com.daniel.sipos.atm.controller.models.DispenseDataModel;
+import com.daniel.sipos.atm.controller.models.DispenseMoneyModel;
+import com.daniel.sipos.atm.service.services.AccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

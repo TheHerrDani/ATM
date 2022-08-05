@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.controller.models;
+package com.daniel.sipos.atm.controller.models;
 
 import javax.validation.constraints.NotNull;
 import lombok.Builder;

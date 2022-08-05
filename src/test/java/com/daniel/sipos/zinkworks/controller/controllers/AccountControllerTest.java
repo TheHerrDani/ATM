@@ -1,9 +1,9 @@
-package com.daniel.sipos.zinkworks.controller.controllers;
+package com.daniel.sipos.atm.controller.controllers;
 
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER;
-import static com.daniel.sipos.zinkworks.util.ControllerConstants.ACCOUNT_INFO;
-import static com.daniel.sipos.zinkworks.util.ControllerConstants.DISPENSE_INFO;
-import static com.daniel.sipos.zinkworks.util.ControllerConstants.DISPENSE_MONEY_MODEL;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_NUMBER;
+import static com.daniel.sipos.atm.util.ControllerConstants.ACCOUNT_INFO;
+import static com.daniel.sipos.atm.util.ControllerConstants.DISPENSE_INFO;
+import static com.daniel.sipos.atm.util.ControllerConstants.DISPENSE_MONEY_MODEL;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;

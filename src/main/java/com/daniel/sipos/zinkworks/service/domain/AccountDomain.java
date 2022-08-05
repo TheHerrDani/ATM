@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.service.domain;
+package com.daniel.sipos.atm.service.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

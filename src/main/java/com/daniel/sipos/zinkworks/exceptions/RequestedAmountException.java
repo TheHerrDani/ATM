@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.exceptions;
+package com.daniel.sipos.atm.exceptions;
 
 public class RequestedAmountException extends RuntimeException {
 

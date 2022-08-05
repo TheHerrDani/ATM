@@ -1,8 +1,8 @@
-package com.daniel.sipos.zinkworks.service.mappers;
+package com.daniel.sipos.atm.service.mappers;
 
-import com.daniel.sipos.zinkworks.repository.entities.Account;
-import com.daniel.sipos.zinkworks.service.domain.AccountDetailsDomain;
-import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
+import com.daniel.sipos.atm.repository.entities.Account;
+import com.daniel.sipos.atm.service.domain.AccountDetailsDomain;
+import com.daniel.sipos.atm.service.domain.AccountDomain;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

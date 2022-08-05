@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.util;
+package com.daniel.sipos.atm.util;
 
 public class Util {
 

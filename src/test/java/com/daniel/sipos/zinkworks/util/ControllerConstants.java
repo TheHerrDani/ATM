@@ -1,10 +1,10 @@
-package com.daniel.sipos.zinkworks.util;
+package com.daniel.sipos.atm.util;
 
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER_2;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_NUMBER;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_NUMBER_2;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_ID;
 
-import com.daniel.sipos.zinkworks.controller.models.DispenseMoneyModel;
+import com.daniel.sipos.atm.controller.models.DispenseMoneyModel;
 
 public class ControllerConstants {
 

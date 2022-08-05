@@ -1,6 +1,6 @@
-package com.daniel.sipos.zinkworks.util;
+package com.daniel.sipos.atm.util;
 
-import com.daniel.sipos.zinkworks.service.domain.AtmDomain;
+import com.daniel.sipos.atm.service.domain.AtmDomain;
 
 
 public class AtmConstants {

@@ -1,6 +1,6 @@
-package com.daniel.sipos.zinkworks.service.domain;
+package com.daniel.sipos.atm.service.domain;
 
-import com.daniel.sipos.zinkworks.util.Util;
+import com.daniel.sipos.atm.util.Util;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

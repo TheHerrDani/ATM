@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.security;
+package com.daniel.sipos.atm.security;
 
 import static java.security.DrbgParameters.Capability.RESEED_ONLY;
 

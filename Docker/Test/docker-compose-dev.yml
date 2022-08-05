@@ -4,7 +4,7 @@ services:
     image: mysql/mysql-server:8.0.29
     environment:
       MYSQL_ROOT_PASSWORD: ZINKWORKS
-      MYSQL_DATABASE: zinkworks
+      MYSQL_DATABASE: atm
       MYSQL_USER: ZINKWORKS
       MYSQL_PASSWORD: ZINKWORKS
     ports:

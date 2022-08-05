@@ -1,8 +1,8 @@
-package com.daniel.sipos.zinkworks.util;
+package com.daniel.sipos.atm.util;
 
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACCOUNT_DETAILS_DOMAIN;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.ACCOUNT_DETAILS_DOMAIN;
 
-import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
+import com.daniel.sipos.atm.service.domain.AccountDomain;
 
 public class AccountConstants {
 

@@ -1,16 +1,16 @@
-package com.daniel.sipos.zinkworks.service.services;
+package com.daniel.sipos.atm.service.services;
 
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_SUM_2;
-import static com.daniel.sipos.zinkworks.util.ControllerConstants.ONE_HUNDRED_FIFTY;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_NUMBER;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_ID;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_SUM_2;
+import static com.daniel.sipos.atm.util.ControllerConstants.ONE_HUNDRED_FIFTY;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
-import com.daniel.sipos.zinkworks.exceptions.OverLimitException;
-import com.daniel.sipos.zinkworks.exceptions.RequestedAmountException;
-import com.daniel.sipos.zinkworks.service.domain.DispenseDataDomain;
+import com.daniel.sipos.atm.exceptions.AtmDenominationException;
+import com.daniel.sipos.atm.exceptions.OverLimitException;
+import com.daniel.sipos.atm.exceptions.RequestedAmountException;
+import com.daniel.sipos.atm.service.domain.DispenseDataDomain;
 import javax.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

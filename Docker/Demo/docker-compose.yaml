@@ -4,7 +4,7 @@ services:
     image: mysql:8.0.29
     environment:
       MYSQL_ROOT_PASSWORD: ZINKWORKS
-      MYSQL_DATABASE: zinkworks
+      MYSQL_DATABASE: atm
       MYSQL_USER: ZINKWORKS
       MYSQL_PASSWORD: ZINKWORKS
     ports:
@@ -15,7 +15,7 @@ services:
     volumes:
       - "./db/dump.sql:/docker-entrypoint-initdb.d/dump.sql"
   api:
-    image: 'herrdani/zinkworks:latest'
+    image: 'herrdani/atm:latest'
     hostname: api
     build:
       dockerfile: Dockerfile
@@ -29,7 +29,7 @@ services:
     restart:
       always
   client:
-    image: 'herrdani/zinkworks-frontend:latest'
+    image: 'herrdani/atm-frontend:latest'
     hostname: client
     build:
       dockerfile: Dockerfile

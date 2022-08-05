@@ -1,13 +1,13 @@
-package com.daniel.sipos.zinkworks.controller.mappers;
+package com.daniel.sipos.atm.controller.mappers;
 
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_DOMAIN;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.DISPENSABLE_MONEY;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACTUAL_BALANCE;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.TWO_HUNDRED;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_DOMAIN;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_NUMBER;
+import static com.daniel.sipos.atm.util.AccountConstants.DISPENSABLE_MONEY;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.ACTUAL_BALANCE;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.TWO_HUNDRED;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.daniel.sipos.zinkworks.controller.models.AccountDataModel;
+import com.daniel.sipos.atm.controller.models.AccountDataModel;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

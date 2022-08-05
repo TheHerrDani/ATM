@@ -1,12 +1,12 @@
-package com.daniel.sipos.zinkworks.repository;
+package com.daniel.sipos.atm.repository;
 
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.TWO_HUNDRED;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.EIGHT_HUNDRED;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_NUMBER;
+import static com.daniel.sipos.atm.util.AccountConstants.TWO_HUNDRED;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.EIGHT_HUNDRED;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.daniel.sipos.zinkworks.repository.entities.Account;
-import com.daniel.sipos.zinkworks.repository.repositories.AccountRepository;
+import com.daniel.sipos.atm.repository.entities.Account;
+import com.daniel.sipos.atm.repository.repositories.AccountRepository;
 import javax.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

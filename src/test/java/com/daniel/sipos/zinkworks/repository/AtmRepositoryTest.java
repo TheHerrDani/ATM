@@ -1,15 +1,15 @@
-package com.daniel.sipos.zinkworks.repository;
+package com.daniel.sipos.atm.repository;
 
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID_TWO;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_FIFTY;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_FIVE;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_TEN;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_TWENTY;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_ID;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_ID_TWO;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_FIFTY;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_FIVE;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_TEN;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_TWENTY;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.daniel.sipos.zinkworks.repository.entities.Atm;
-import com.daniel.sipos.zinkworks.repository.repositories.AtmRepository;
+import com.daniel.sipos.atm.repository.entities.Atm;
+import com.daniel.sipos.atm.repository.repositories.AtmRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

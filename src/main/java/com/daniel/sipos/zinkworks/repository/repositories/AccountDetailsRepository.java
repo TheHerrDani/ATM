@@ -1,7 +1,7 @@
-package com.daniel.sipos.zinkworks.repository.repositories;
+package com.daniel.sipos.atm.repository.repositories;
 
-import com.daniel.sipos.zinkworks.repository.entities.AccountDetails;
-import com.daniel.sipos.zinkworks.repository.repositories.dataaccess.AccountDetailsDataAccess;
+import com.daniel.sipos.atm.repository.entities.AccountDetails;
+import com.daniel.sipos.atm.repository.repositories.dataaccess.AccountDetailsDataAccess;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

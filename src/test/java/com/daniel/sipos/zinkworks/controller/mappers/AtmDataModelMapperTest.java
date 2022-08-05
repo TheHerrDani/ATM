@@ -1,11 +1,11 @@
-package com.daniel.sipos.zinkworks.controller.mappers;
+package com.daniel.sipos.atm.controller.mappers;
 
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_DOMAIN;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_SUM_2;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.TEN;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_DOMAIN;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_SUM_2;
+import static com.daniel.sipos.atm.util.AtmConstants.TEN;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.daniel.sipos.zinkworks.controller.models.AtmDataModel;
+import com.daniel.sipos.atm.controller.models.AtmDataModel;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

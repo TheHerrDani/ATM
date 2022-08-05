@@ -1,17 +1,17 @@
-package com.daniel.sipos.zinkworks.service.mappers;
+package com.daniel.sipos.atm.service.mappers;
 
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_DOMAIN;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_FIFTY;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_FIVE;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_SUM;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_SUM_2;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_TEN;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_TWENTY;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.TEN;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_DOMAIN;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_FIFTY;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_FIVE;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_SUM;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_SUM_2;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_TEN;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_TWENTY;
+import static com.daniel.sipos.atm.util.AtmConstants.TEN;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.daniel.sipos.zinkworks.repository.entities.Atm;
-import com.daniel.sipos.zinkworks.service.domain.AtmDomain;
+import com.daniel.sipos.atm.repository.entities.Atm;
+import com.daniel.sipos.atm.service.domain.AtmDomain;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

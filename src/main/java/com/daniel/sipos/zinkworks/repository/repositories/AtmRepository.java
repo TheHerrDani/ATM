@@ -1,7 +1,7 @@
-package com.daniel.sipos.zinkworks.repository.repositories;
+package com.daniel.sipos.atm.repository.repositories;
 
-import com.daniel.sipos.zinkworks.repository.entities.Atm;
-import com.daniel.sipos.zinkworks.repository.repositories.dataaccess.AtmDataAccess;
+import com.daniel.sipos.atm.repository.entities.Atm;
+import com.daniel.sipos.atm.repository.repositories.dataaccess.AtmDataAccess;
 import java.util.NoSuchElementException;
 import javax.transaction.Transactional;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.controller.controllers;
+package com.daniel.sipos.atm.controller.controllers;
 
 import java.time.Instant;
 import java.util.stream.Collectors;

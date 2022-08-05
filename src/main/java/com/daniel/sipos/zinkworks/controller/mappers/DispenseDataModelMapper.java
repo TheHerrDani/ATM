@@ -1,9 +1,9 @@
-package com.daniel.sipos.zinkworks.controller.mappers;
+package com.daniel.sipos.atm.controller.mappers;
 
-import com.daniel.sipos.zinkworks.controller.models.DispenseDataModel;
-import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
-import com.daniel.sipos.zinkworks.service.domain.AtmDispenseChange;
-import com.daniel.sipos.zinkworks.service.domain.DispenseDataDomain;
+import com.daniel.sipos.atm.controller.models.DispenseDataModel;
+import com.daniel.sipos.atm.service.domain.AccountDomain;
+import com.daniel.sipos.atm.service.domain.AtmDispenseChange;
+import com.daniel.sipos.atm.service.domain.DispenseDataDomain;
 import org.springframework.stereotype.Service;
 
 @Service

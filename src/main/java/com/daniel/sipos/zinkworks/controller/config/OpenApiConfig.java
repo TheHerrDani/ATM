@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.controller.config;
+package com.daniel.sipos.atm.controller.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

@@ -1,7 +1,7 @@
-package com.daniel.sipos.zinkworks.controller.controllers;
+package com.daniel.sipos.atm.controller.controllers;
 
-import com.daniel.sipos.zinkworks.controller.models.AtmDataModel;
-import com.daniel.sipos.zinkworks.service.services.AtmService;
+import com.daniel.sipos.atm.controller.models.AtmDataModel;
+import com.daniel.sipos.atm.service.services.AtmService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

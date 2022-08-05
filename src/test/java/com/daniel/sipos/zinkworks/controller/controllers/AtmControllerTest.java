@@ -1,7 +1,7 @@
-package com.daniel.sipos.zinkworks.controller.controllers;
+package com.daniel.sipos.atm.controller.controllers;
 
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID;
-import static com.daniel.sipos.zinkworks.util.ControllerConstants.ATM_INFO;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_ID;
+import static com.daniel.sipos.atm.util.ControllerConstants.ATM_INFO;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

@@ -1,16 +1,16 @@
-package com.daniel.sipos.zinkworks.controller.mappers;
+package com.daniel.sipos.atm.controller.mappers;
 
-import static com.daniel.sipos.zinkworks.service.services.AtmServiceTest.createAtmDispenseChange;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_DOMAIN;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.DISPENSABLE_MONEY;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACTUAL_BALANCE;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.TWO_HUNDRED;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.EXPECTED_SUM_2;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.TEN;
+import static com.daniel.sipos.atm.service.services.AtmServiceTest.createAtmDispenseChange;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_DOMAIN;
+import static com.daniel.sipos.atm.util.AccountConstants.DISPENSABLE_MONEY;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.ACTUAL_BALANCE;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.TWO_HUNDRED;
+import static com.daniel.sipos.atm.util.AtmConstants.EXPECTED_SUM_2;
+import static com.daniel.sipos.atm.util.AtmConstants.TEN;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.daniel.sipos.zinkworks.controller.models.DispenseDataModel;
-import com.daniel.sipos.zinkworks.service.domain.DispenseDataDomain;
+import com.daniel.sipos.atm.controller.models.DispenseDataModel;
+import com.daniel.sipos.atm.service.domain.DispenseDataDomain;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

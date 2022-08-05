@@ -1,4 +1,4 @@
-package com.daniel.sipos.zinkworks.repository.entities;
+package com.daniel.sipos.atm.repository.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

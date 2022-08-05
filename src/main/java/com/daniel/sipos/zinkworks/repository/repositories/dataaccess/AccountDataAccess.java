@@ -1,6 +1,6 @@
-package com.daniel.sipos.zinkworks.repository.repositories.dataaccess;
+package com.daniel.sipos.atm.repository.repositories.dataaccess;
 
-import com.daniel.sipos.zinkworks.repository.entities.Account;
+import com.daniel.sipos.atm.repository.entities.Account;
 import java.util.Optional;
 import javax.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;

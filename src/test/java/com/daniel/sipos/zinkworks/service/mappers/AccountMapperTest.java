@@ -1,18 +1,18 @@
-package com.daniel.sipos.zinkworks.service.mappers;
+package com.daniel.sipos.atm.service.mappers;
 
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_DOMAIN;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.ACCOUNT_NUMBER;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.DISPENSABLE_MONEY;
-import static com.daniel.sipos.zinkworks.util.AccountConstants.PIN_NUMBER;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACCOUNT_DETAILS_ID;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.ACTUAL_BALANCE;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.TWO_HUNDRED;
-import static com.daniel.sipos.zinkworks.util.AccountDetailsConstants.createAccountDetails;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_DOMAIN;
+import static com.daniel.sipos.atm.util.AccountConstants.ACCOUNT_NUMBER;
+import static com.daniel.sipos.atm.util.AccountConstants.DISPENSABLE_MONEY;
+import static com.daniel.sipos.atm.util.AccountConstants.PIN_NUMBER;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.ACCOUNT_DETAILS_ID;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.ACTUAL_BALANCE;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.TWO_HUNDRED;
+import static com.daniel.sipos.atm.util.AccountDetailsConstants.createAccountDetails;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.daniel.sipos.zinkworks.repository.entities.Account;
-import com.daniel.sipos.zinkworks.repository.entities.AccountDetails;
-import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
+import com.daniel.sipos.atm.repository.entities.Account;
+import com.daniel.sipos.atm.repository.entities.AccountDetails;
+import com.daniel.sipos.atm.service.domain.AccountDomain;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

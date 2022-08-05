@@ -1,20 +1,20 @@
-package com.daniel.sipos.zinkworks.service.services;
+package com.daniel.sipos.atm.service.services;
 
-import static com.daniel.sipos.zinkworks.util.Util.FIVE;
+import static com.daniel.sipos.atm.util.Util.FIVE;
 
-import com.daniel.sipos.zinkworks.controller.mappers.AccountDataMapper;
-import com.daniel.sipos.zinkworks.controller.models.AccountDataModel;
-import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
-import com.daniel.sipos.zinkworks.exceptions.OverLimitException;
-import com.daniel.sipos.zinkworks.exceptions.RequestedAmountException;
-import com.daniel.sipos.zinkworks.repository.repositories.AccountDetailsRepository;
-import com.daniel.sipos.zinkworks.repository.repositories.AccountRepository;
-import com.daniel.sipos.zinkworks.service.domain.AccountDetailsDomain;
-import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
-import com.daniel.sipos.zinkworks.service.domain.AtmDispenseChange;
-import com.daniel.sipos.zinkworks.service.domain.DispenseDataDomain;
-import com.daniel.sipos.zinkworks.service.mappers.AccountDetailsMapper;
-import com.daniel.sipos.zinkworks.service.mappers.AccountMapper;
+import com.daniel.sipos.atm.controller.mappers.AccountDataMapper;
+import com.daniel.sipos.atm.controller.models.AccountDataModel;
+import com.daniel.sipos.atm.exceptions.AtmDenominationException;
+import com.daniel.sipos.atm.exceptions.OverLimitException;
+import com.daniel.sipos.atm.exceptions.RequestedAmountException;
+import com.daniel.sipos.atm.repository.repositories.AccountDetailsRepository;
+import com.daniel.sipos.atm.repository.repositories.AccountRepository;
+import com.daniel.sipos.atm.service.domain.AccountDetailsDomain;
+import com.daniel.sipos.atm.service.domain.AccountDomain;
+import com.daniel.sipos.atm.service.domain.AtmDispenseChange;
+import com.daniel.sipos.atm.service.domain.DispenseDataDomain;
+import com.daniel.sipos.atm.service.mappers.AccountDetailsMapper;
+import com.daniel.sipos.atm.service.mappers.AccountMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

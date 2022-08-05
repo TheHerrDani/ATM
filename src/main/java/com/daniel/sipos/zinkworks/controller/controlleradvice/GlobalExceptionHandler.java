@@ -1,9 +1,9 @@
-package com.daniel.sipos.zinkworks.controller.controlleradvice;
+package com.daniel.sipos.atm.controller.controlleradvice;
 
-import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
-import com.daniel.sipos.zinkworks.exceptions.AtmMoneyShortageException;
-import com.daniel.sipos.zinkworks.exceptions.OverLimitException;
-import com.daniel.sipos.zinkworks.exceptions.RequestedAmountException;
+import com.daniel.sipos.atm.exceptions.AtmDenominationException;
+import com.daniel.sipos.atm.exceptions.AtmMoneyShortageException;
+import com.daniel.sipos.atm.exceptions.OverLimitException;
+import com.daniel.sipos.atm.exceptions.RequestedAmountException;
 import java.util.NoSuchElementException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

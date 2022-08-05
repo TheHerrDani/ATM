@@ -1,7 +1,7 @@
-package com.daniel.sipos.zinkworks.controller.mappers;
+package com.daniel.sipos.atm.controller.mappers;
 
-import com.daniel.sipos.zinkworks.controller.models.AccountDataModel;
-import com.daniel.sipos.zinkworks.service.domain.AccountDomain;
+import com.daniel.sipos.atm.controller.models.AccountDataModel;
+import com.daniel.sipos.atm.service.domain.AccountDomain;
 import org.springframework.stereotype.Service;
 
 @Service

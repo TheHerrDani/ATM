@@ -1,20 +1,20 @@
-package com.daniel.sipos.zinkworks.service.services;
+package com.daniel.sipos.atm.service.services;
 
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_DOMAIN;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.ATM_ID;
-import static com.daniel.sipos.zinkworks.util.AtmConstants.FIVE;
-import static com.daniel.sipos.zinkworks.util.Util.FIFTY;
-import static com.daniel.sipos.zinkworks.util.Util.TEN;
-import static com.daniel.sipos.zinkworks.util.Util.TWENTY;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_DOMAIN;
+import static com.daniel.sipos.atm.util.AtmConstants.ATM_ID;
+import static com.daniel.sipos.atm.util.AtmConstants.FIVE;
+import static com.daniel.sipos.atm.util.Util.FIFTY;
+import static com.daniel.sipos.atm.util.Util.TEN;
+import static com.daniel.sipos.atm.util.Util.TWENTY;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hibernate.type.IntegerType.ZERO;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.daniel.sipos.zinkworks.exceptions.AtmDenominationException;
-import com.daniel.sipos.zinkworks.exceptions.AtmMoneyShortageException;
-import com.daniel.sipos.zinkworks.repository.entities.Atm;
-import com.daniel.sipos.zinkworks.repository.repositories.AtmRepository;
-import com.daniel.sipos.zinkworks.service.domain.AtmDispenseChange;
+import com.daniel.sipos.atm.exceptions.AtmDenominationException;
+import com.daniel.sipos.atm.exceptions.AtmMoneyShortageException;
+import com.daniel.sipos.atm.repository.entities.Atm;
+import com.daniel.sipos.atm.repository.repositories.AtmRepository;
+import com.daniel.sipos.atm.service.domain.AtmDispenseChange;
 import java.util.Map;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;

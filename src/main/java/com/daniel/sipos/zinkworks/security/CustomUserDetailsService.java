@@ -1,7 +1,7 @@
-package com.daniel.sipos.zinkworks.security;
+package com.daniel.sipos.atm.security;
 
-import com.daniel.sipos.zinkworks.repository.entities.Account;
-import com.daniel.sipos.zinkworks.repository.repositories.AccountRepository;
+import com.daniel.sipos.atm.repository.entities.Account;
+import com.daniel.sipos.atm.repository.repositories.AccountRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;

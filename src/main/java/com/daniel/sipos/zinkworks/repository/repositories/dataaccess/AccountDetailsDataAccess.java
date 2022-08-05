@@ -1,6 +1,6 @@
-package com.daniel.sipos.zinkworks.repository.repositories.dataaccess;
+package com.daniel.sipos.atm.repository.repositories.dataaccess;
 
-import com.daniel.sipos.zinkworks.repository.entities.AccountDetails;
+import com.daniel.sipos.atm.repository.entities.AccountDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
