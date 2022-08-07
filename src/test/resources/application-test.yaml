@@ -7,8 +7,8 @@ spring:
     show-sql: true
   datasource:
     url: jdbc:mysql://localhost:3306/atm
-    username: ZINKWORKS
-    password: ZINKWORKS
+    username: ATM
+    password: ATM
     driver-class-name: com.mysql.cj.jdbc.Driver
   liquibase:
     enabled: true

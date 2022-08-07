@@ -3,10 +3,10 @@ services:
   mysqlserver:
     image: mysql:8.0.29
     environment:
-      MYSQL_ROOT_PASSWORD: ZINKWORKS
+      MYSQL_ROOT_PASSWORD: ATM
       MYSQL_DATABASE: atm
-      MYSQL_USER: ZINKWORKS
-      MYSQL_PASSWORD: ZINKWORKS
+      MYSQL_USER: ATM
+      MYSQL_PASSWORD: ATM
     ports:
       - "3306:3306"
     networks:

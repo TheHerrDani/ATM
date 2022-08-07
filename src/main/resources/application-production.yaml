@@ -5,8 +5,8 @@ spring:
         dialect: org.hibernate.dialect.MySQL57InnoDBDialect
   datasource:
     url: jdbc:mysql://mysqlserver:3306/atm
-    username: ZINKWORKS
-    password: ZINKWORKS
+    username: ATM
+    password: ATM
     driver-class-name: com.mysql.cj.jdbc.Driver
   liquibase:
     enabled: false
